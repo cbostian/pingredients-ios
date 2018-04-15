@@ -60,9 +60,8 @@ extension RecipesViewController : RecipesLayoutDelegate {
 
     func textHeight(for text: String, for font: UIFont, width: CGFloat) -> CGFloat {
         let nsstring = NSString(string: text)
-        let maxHeight = 42.0
         let textAttributes = [NSAttributedStringKey.font: font]
-        let boundingRect = nsstring.boundingRect(with: CGSize(width: width, height: CGFloat(maxHeight)), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
+        let boundingRect = nsstring.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
 
         return ceil(boundingRect.height)
     }
