@@ -21,7 +21,6 @@ class RecipesViewController : UICollectionViewController
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             layout.delegate = self
         }
-//        NotificationCenter.default().addObserver(self, selector: #selector(userChangedTextSize(notification:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
 
     func updateRecipes(recipesToAdd: Array<Recipe>) {
