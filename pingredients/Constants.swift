@@ -12,4 +12,9 @@ import UIKit
 struct Constants {
     static let columns: Int = 2
     static let cellPadding: CGFloat = 5.0
+    
+    static var captionFont: UIFont {
+        let captionFontStyle = UIFontTextStyle.body
+        return UIFontMetrics(forTextStyle: captionFontStyle).scaledFont(for: UIFont.preferredFont(forTextStyle: captionFontStyle))
+    }
 }

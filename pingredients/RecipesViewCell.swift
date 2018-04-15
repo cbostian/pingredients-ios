@@ -27,6 +27,7 @@ class RecipesViewCell: UICollectionViewCell
     func updateUI()
     {
         captionLabel.text = post.name ?? post.note
+        captionLabel.font = Constants.captionFont
 
         downloadUIImage(recipeImage: post.image)
         postImageView.layer.cornerRadius = 5.0
