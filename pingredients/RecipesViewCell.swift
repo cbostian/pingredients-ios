@@ -16,8 +16,6 @@ class RecipesViewCell: UICollectionViewCell
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var addOrRemove: UIButton!
 
-    @IBOutlet weak var imageHeight: NSLayoutConstraint!
-
     var post: Recipe! {
         didSet {
             self.updateUI()
@@ -34,13 +32,6 @@ class RecipesViewCell: UICollectionViewCell
         postImageView.layer.masksToBounds = true
         addOrRemove.layer.cornerRadius = addOrRemove.bounds.size.width / 2
         addOrRemove.clipsToBounds = true
-    }
-
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        if let attributes = layoutAttributes as? RecipesLayoutAttributes {
-            imageHeight.constant = attributes.photoHeight
-        }
     }
 
     func downloadUIImage(recipeImage: RecipeImage) {

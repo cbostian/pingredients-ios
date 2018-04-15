@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4384" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,21 +106,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="269" height="285"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G13-PN-b4V">
-                                            <rect key="frame" x="0.0" y="215" width="269" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="TKJ-XL-uNz"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="75" id="phb-NY-bS7"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G13-PN-b4V">
+                                            <rect key="frame" x="0.0" y="248.66666666666666" width="269" height="20.333333333333343"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-fM-g32">
-                                            <rect key="frame" x="0.0" y="0.0" width="269" height="213"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="WqP-b5-A9M"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="269" height="240.66666666666666"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh3-2e-t55">
                                             <rect key="frame" x="219" y="10" width="40" height="40"/>
@@ -139,16 +132,15 @@
                                     <constraint firstItem="9Bi-fM-g32" firstAttribute="top" secondItem="eh3-2e-t55" secondAttribute="bottom" constant="-50" id="OML-wP-yHH"/>
                                     <constraint firstItem="G13-PN-b4V" firstAttribute="leading" secondItem="Axg-wD-wcJ" secondAttribute="leading" id="TzY-03-OlW"/>
                                     <constraint firstItem="9Bi-fM-g32" firstAttribute="leading" secondItem="Axg-wD-wcJ" secondAttribute="leading" id="WPH-rf-EZW"/>
-                                    <constraint firstItem="G13-PN-b4V" firstAttribute="top" secondItem="9Bi-fM-g32" secondAttribute="bottom" constant="2" id="cFG-6x-GuQ"/>
+                                    <constraint firstItem="G13-PN-b4V" firstAttribute="top" secondItem="9Bi-fM-g32" secondAttribute="bottom" constant="8" id="cFG-6x-GuQ"/>
                                     <constraint firstAttribute="trailing" secondItem="9Bi-fM-g32" secondAttribute="trailing" id="il8-I1-Fjo"/>
-                                    <constraint firstAttribute="bottom" secondItem="G13-PN-b4V" secondAttribute="bottom" constant="20" id="p3v-EX-q56"/>
+                                    <constraint firstAttribute="bottom" secondItem="G13-PN-b4V" secondAttribute="bottom" constant="16" id="p3v-EX-q56"/>
                                     <constraint firstItem="9Bi-fM-g32" firstAttribute="top" secondItem="Axg-wD-wcJ" secondAttribute="top" id="yK0-cc-4UL"/>
                                 </constraints>
                                 <size key="customSize" width="269" height="285"/>
                                 <connections>
                                     <outlet property="addOrRemove" destination="eh3-2e-t55" id="XuS-hk-NAc"/>
                                     <outlet property="captionLabel" destination="G13-PN-b4V" id="g5I-tg-ELM"/>
-                                    <outlet property="imageHeight" destination="WqP-b5-A9M" id="O1w-Bw-ESz"/>
                                     <outlet property="postImageView" destination="9Bi-fM-g32" id="fkr-o2-PQd"/>
                                 </connections>
                             </collectionViewCell>
