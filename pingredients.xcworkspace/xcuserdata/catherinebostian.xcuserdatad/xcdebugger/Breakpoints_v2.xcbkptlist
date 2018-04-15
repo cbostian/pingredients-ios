@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pingredients/AppDelegate.swift"
-            timestampString = "540936077.309106"
+            timestampString = "545406286.272532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -197,13 +197,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pingredients/RecipesViewController.swift"
-            timestampString = "545333515.373841"
+            timestampString = "545406286.2726721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

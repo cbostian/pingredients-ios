@@ -72,9 +72,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tu-dr-law">
                                 <rect key="frame" x="8" y="44" width="359" height="685"/>
-                                <connections>
-                                    <segue destination="1Uk-J2-cxR" kind="embed" id="TzS-om-uEC"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,81 +90,17 @@
             <point key="canvasLocation" x="-2198" y="1244"/>
         </scene>
         <!--Recipes View Controller-->
-        <scene sceneID="V1X-Xt-QEF">
-            <objects>
-                <collectionViewController id="pIx-kF-0bj" customClass="RecipesViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aXS-QG-8Nc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewLayout key="collectionViewLayout" id="0OQ-A7-C03" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="ghl-f1-8OC" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
-                                <rect key="frame" x="89.666666666666671" y="0.0" width="196" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="196" height="309"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yia-aB-TGi">
-                                            <rect key="frame" x="0.0" y="0.0" width="196" height="309"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-1x-aeF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="196" height="200"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="RFL-7A-kJ5"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20.333333333333343" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2v-gS-7VB">
-                                                    <rect key="frame" x="0.0" y="215" width="196" height="20.333333333333343"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-8b-fqt">
-                                                    <rect key="frame" x="0.0" y="250.33333333333337" width="196" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yia-aB-TGi" secondAttribute="trailing" id="8Vb-Ah-f7Y"/>
-                                    <constraint firstItem="yia-aB-TGi" firstAttribute="top" secondItem="ghl-f1-8OC" secondAttribute="top" id="LV8-ZY-ptk"/>
-                                    <constraint firstItem="yia-aB-TGi" firstAttribute="leading" secondItem="ghl-f1-8OC" secondAttribute="leading" id="dTe-5g-DXE"/>
-                                </constraints>
-                                <size key="customSize" width="196" height="309"/>
-                                <connections>
-                                    <outlet property="addOrRemove" destination="oSj-8b-fqt" id="3Gf-Od-qtX"/>
-                                    <outlet property="captionLabel" destination="e2v-gS-7VB" id="8ff-Py-5Ni"/>
-                                    <outlet property="imageHeight" destination="RFL-7A-kJ5" id="ney-VS-dCD"/>
-                                    <outlet property="postImageView" destination="Zed-1x-aeF" id="O63-FL-Y2E"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="pIx-kF-0bj" id="FIC-8Z-x7F"/>
-                            <outlet property="delegate" destination="pIx-kF-0bj" id="gko-RO-BJ8"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vqq-OA-ndK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-549.60000000000002" y="1175.2463054187192"/>
-        </scene>
-        <!--Recipes View Controller-->
         <scene sceneID="J7H-z1-x54">
             <objects>
                 <collectionViewController id="1Uk-J2-cxR" customClass="RecipesViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bde-6O-KWD">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="685"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="g4t-vN-qT7" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
-                                <rect key="frame" x="45" y="0.0" width="269" height="285"/>
+                                <rect key="frame" x="53" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="269" height="285"/>

@@ -55,15 +55,13 @@ extension RecipesViewController : RecipesLayoutDelegate {
 
     func heightForCaption(at indexPath: IndexPath, width: CGFloat) -> CGFloat {
         let recipe = recipes[indexPath.item]
-        //let topPadding = CGFloat(8)
-        //let bottomPadding = CGFloat(16)
-        //let font = UIFont(name: "Helvetica-Bold", size: 12.0)!
         var font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
         font = UIFontMetrics(forTextStyle: UIFontTextStyle.caption2).scaledFont(for: font)
-        //let font = RecipesViewCell().captionLabel.font!
+//        NotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.didChangePreferredContentSize), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+
         let captionHeight = self.textHeight(for: recipe.name ?? recipe.note, for: font, width: width)
 
-        return captionHeight //+ bottomPadding
+        return captionHeight
     }
 
     func textHeight(for text: String, for font: UIFont, width: CGFloat) -> CGFloat {
