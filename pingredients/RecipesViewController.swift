@@ -55,9 +55,7 @@ extension RecipesViewController : RecipesLayoutDelegate {
 
     func heightForCaption(at indexPath: IndexPath, width: CGFloat) -> CGFloat {
         let recipe = recipes[indexPath.item]
-        var font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
-        font = UIFontMetrics(forTextStyle: UIFontTextStyle.caption2).scaledFont(for: font)
-        let captionHeight = self.textHeight(for: recipe.name ?? recipe.note, for: font, width: width)
+        let captionHeight = self.textHeight(for: recipe.name ?? recipe.note, for: Constants.captionFont, width: width)
 
         return captionHeight
     }
