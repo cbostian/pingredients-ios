@@ -47,10 +47,10 @@ extension RecipesViewController : RecipesLayoutDelegate {
     func heightForPhoto(at indexPath: IndexPath, width: CGFloat) -> CGFloat {
         let recipe = recipes[indexPath.item]
         let photo = recipe.image
-        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: CGSize(width: photo.width, height: photo.height), insideRect: boundingRect)
+        let scaleFactor = width / CGFloat(photo.width)
+        let height = CGFloat(photo.height) * scaleFactor
 
-        return rect.size.height
+        return height
     }
 
     func heightForCaption(at indexPath: IndexPath, width: CGFloat) -> CGFloat {
@@ -61,7 +61,7 @@ extension RecipesViewController : RecipesLayoutDelegate {
     func textHeight(for text: String, for font: UIFont, width: CGFloat) -> CGFloat {
         let nsstring = NSString(string: text)
         let textAttributes = [NSAttributedStringKey.font: font]
-        let boundingRect = nsstring.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
+        let boundingRect = nsstring.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
 
         return ceil(boundingRect.height)
     }
