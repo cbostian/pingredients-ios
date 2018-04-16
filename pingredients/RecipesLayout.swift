@@ -31,7 +31,7 @@ class RecipesLayout: UICollectionViewLayout {
             let cellWidth = columnWidth
 
             var yOffsets = [CGFloat](repeating: 0, count: Constants.columns)
-            
+
             for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
                 //place the item in the shortest column to keep columns balanced
                 var column = 0
