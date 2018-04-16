@@ -31,9 +31,14 @@ class RecipesLayout: UICollectionViewLayout {
             let cellWidth = columnWidth
 
             var yOffsets = [CGFloat](repeating: 0, count: Constants.columns)
-
             for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
-                let column = item % Constants.columns
+                //place the item in the shortest column to keep columns balanced
+                var column = 0
+                for (offsetIndex, offset) in yOffsets.enumerated() {
+                    if offset < yOffsets[column] {
+                        column = offsetIndex
+                    }
+                }
                 let indexPath = IndexPath(item: item, section: 0)
 
                 // calculate the frame
