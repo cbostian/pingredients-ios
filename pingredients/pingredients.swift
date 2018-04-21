@@ -10,15 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let environment = "dev env"
-
-var baseURLString: String {
-    if environment == "prod" {
-        return "https://pingredients-192501.appspot.com"
-    } else {
-        return "http://localhost:8080"
-    }
-}
+#if DEVELOPMENT
+    let baseURLString = "http://localhost:8080"
+#else
+    let baseURLString = "https://pingredients-192501.appspot.com"
+#endif
 
 func getRecipePins(oauthToken: String, callback: @escaping (Array<Recipe>) -> ()) {
     var request = URLRequest(url: URL(string: baseURLString + "/recipes")!)
