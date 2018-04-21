@@ -68,7 +68,7 @@
 		990A6B352012E27D00F76E58 /* pingredients.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pingredients.entitlements; sourceTree = "<group>"; };
 		991F13DC202123F600B13818 /* RecipesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewCell.swift; sourceTree = "<group>"; };
 		992DB171208A395F0074B991 /* pingredients dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pingredients dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		992DB172208A395F0074B991 /* pingredients-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pingredients-dev.plist"; path = "/Users/catherinebostian/Desktop/development/pingredients/pingredients-dev.plist"; sourceTree = "<absolute>"; };
+		992DB172208A395F0074B991 /* pingredients-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pingredients-dev.plist"; sourceTree = "<group>"; };
 		99615F742033AE3300CEE11F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99A73CC6201584E400037794 /* pingredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pingredients.swift; sourceTree = "<group>"; };
 		99E284D8201150E4007F5649 /* pingredients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pingredients.app; sourceTree = BUILT_PRODUCTS_DIR; };
