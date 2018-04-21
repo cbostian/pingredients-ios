@@ -10,6 +10,19 @@
 		0B7FB54B5CB660AED4B5A60A /* Pods_pingredientsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5B73CAEDC50AB3283E4967 /* Pods_pingredientsUITests.framework */; };
 		6D93D497CA146CB2E672D2A0 /* Pods_pingredients.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD30D37FC605449CA4E109E /* Pods_pingredients.framework */; };
 		991F13DD202123F600B13818 /* RecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F13DC202123F600B13818 /* RecipesViewCell.swift */; };
+		992DB15D208A395F0074B991 /* RecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991F13DC202123F600B13818 /* RecipesViewCell.swift */; };
+		992DB15E208A395F0074B991 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E284DD201150E4007F5649 /* LoginViewController.swift */; };
+		992DB15F208A395F0074B991 /* pingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A73CC6201584E400037794 /* pingredients.swift */; };
+		992DB160208A395F0074B991 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA673201C00D30029DEE6 /* Recipe.swift */; };
+		992DB161208A395F0074B991 /* pingredients.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99E284E2201150E4007F5649 /* pingredients.xcdatamodeld */; };
+		992DB162208A395F0074B991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E284DB201150E4007F5649 /* AppDelegate.swift */; };
+		992DB163208A395F0074B991 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA670201951590029DEE6 /* RecipesViewController.swift */; };
+		992DB164208A395F0074B991 /* RecipesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA66E201875540029DEE6 /* RecipesLayout.swift */; };
+		992DB165208A395F0074B991 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99615F742033AE3300CEE11F /* Constants.swift */; };
+		992DB167208A395F0074B991 /* Pods_pingredients.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD30D37FC605449CA4E109E /* Pods_pingredients.framework */; };
+		992DB169208A395F0074B991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E284E7201150E4007F5649 /* LaunchScreen.storyboard */; };
+		992DB16A208A395F0074B991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E284E5201150E4007F5649 /* Assets.xcassets */; };
+		992DB16B208A395F0074B991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E284DF201150E4007F5649 /* Main.storyboard */; };
 		99615F752033AE3300CEE11F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99615F742033AE3300CEE11F /* Constants.swift */; };
 		99A73CC7201584E400037794 /* pingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A73CC6201584E400037794 /* pingredients.swift */; };
 		99E284DC201150E4007F5649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E284DB201150E4007F5649 /* AppDelegate.swift */; };
@@ -54,6 +67,8 @@
 		976DD4CB4BED7E63EE90229C /* Pods_pingredientsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pingredientsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990A6B352012E27D00F76E58 /* pingredients.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pingredients.entitlements; sourceTree = "<group>"; };
 		991F13DC202123F600B13818 /* RecipesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewCell.swift; sourceTree = "<group>"; };
+		992DB171208A395F0074B991 /* pingredients dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pingredients dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		992DB172208A395F0074B991 /* pingredients-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pingredients-dev.plist"; path = "/Users/catherinebostian/Desktop/development/pingredients/pingredients-dev.plist"; sourceTree = "<absolute>"; };
 		99615F742033AE3300CEE11F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99A73CC6201584E400037794 /* pingredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pingredients.swift; sourceTree = "<group>"; };
 		99E284D8201150E4007F5649 /* pingredients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pingredients.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +92,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		992DB166208A395F0074B991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992DB167208A395F0074B991 /* Pods_pingredients.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99E284D5201150E4007F5649 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +162,7 @@
 				99E284D9201150E4007F5649 /* Products */,
 				D9B9A3267366D8C6DC0C6D3C /* Pods */,
 				1438E53C552C942C845C6C79 /* Frameworks */,
+				992DB172208A395F0074B991 /* pingredients-dev.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +172,7 @@
 				99E284D8201150E4007F5649 /* pingredients.app */,
 				99E284EF201150E4007F5649 /* pingredientsTests.xctest */,
 				99E284FA201150E4007F5649 /* pingredientsUITests.xctest */,
+				992DB171208A395F0074B991 /* pingredients dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +264,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		992DB15A208A395F0074B991 /* pingredients dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 992DB16E208A395F0074B991 /* Build configuration list for PBXNativeTarget "pingredients dev" */;
+			buildPhases = (
+				992DB15B208A395F0074B991 /* [CP] Check Pods Manifest.lock */,
+				992DB15C208A395F0074B991 /* Sources */,
+				992DB166208A395F0074B991 /* Frameworks */,
+				992DB168208A395F0074B991 /* Resources */,
+				992DB16C208A395F0074B991 /* [CP] Embed Pods Frameworks */,
+				992DB16D208A395F0074B991 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "pingredients dev";
+			productName = pingredients;
+			productReference = 992DB171208A395F0074B991 /* pingredients dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		99E284D7201150E4007F5649 /* pingredients */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99E28503201150E4007F5649 /* Build configuration list for PBXNativeTarget "pingredients" */;
@@ -311,6 +356,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Catherine Bostian";
 				TargetAttributes = {
+					992DB15A208A395F0074B991 = {
+						DevelopmentTeam = BW6Q4798GC;
+					};
 					99E284D7201150E4007F5649 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BW6Q4798GC;
@@ -354,11 +402,22 @@
 				99E284D7201150E4007F5649 /* pingredients */,
 				99E284EE201150E4007F5649 /* pingredientsTests */,
 				99E284F9201150E4007F5649 /* pingredientsUITests */,
+				992DB15A208A395F0074B991 /* pingredients dev */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		992DB168208A395F0074B991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992DB169208A395F0074B991 /* LaunchScreen.storyboard in Resources */,
+				992DB16A208A395F0074B991 /* Assets.xcassets in Resources */,
+				992DB16B208A395F0074B991 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99E284D6201150E4007F5649 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,6 +529,68 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pingredientsTests/Pods-pingredientsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		992DB15B208A395F0074B991 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pingredients-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		992DB16C208A395F0074B991 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pingredients/Pods-pingredients-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PinterestSDK/PinterestSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinterestSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pingredients/Pods-pingredients-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		992DB16D208A395F0074B991 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pingredients/Pods-pingredients-resources.sh",
+				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pingredients/Pods-pingredients-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A370E201685A1EC76691EFA2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,6 +668,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		992DB15C208A395F0074B991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992DB15D208A395F0074B991 /* RecipesViewCell.swift in Sources */,
+				992DB15E208A395F0074B991 /* LoginViewController.swift in Sources */,
+				992DB15F208A395F0074B991 /* pingredients.swift in Sources */,
+				992DB160208A395F0074B991 /* Recipe.swift in Sources */,
+				992DB161208A395F0074B991 /* pingredients.xcdatamodeld in Sources */,
+				992DB162208A395F0074B991 /* AppDelegate.swift in Sources */,
+				992DB163208A395F0074B991 /* RecipesViewController.swift in Sources */,
+				992DB164208A395F0074B991 /* RecipesLayout.swift in Sources */,
+				992DB165208A395F0074B991 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99E284D4201150E4007F5649 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +751,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		992DB16F208A395F0074B991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E0C74202156F15CD2D3956F /* Pods-pingredients.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BW6Q4798GC;
+				INFOPLIST_FILE = "pingredients-dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.cbostian.pingredients;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEVELOPMENT;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		992DB170208A395F0074B991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8FF59E85E9E5BAB7D6B63A6 /* Pods-pingredients.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BW6Q4798GC;
+				INFOPLIST_FILE = "pingredients-dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.cbostian.pingredients;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEVELOPMENT;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		99E28501201150E4007F5649 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -820,6 +991,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		992DB16E208A395F0074B991 /* Build configuration list for PBXNativeTarget "pingredients dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				992DB16F208A395F0074B991 /* Debug */,
+				992DB170208A395F0074B991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		99E284D3201150E4007F5649 /* Build configuration list for PBXProject "pingredients" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
