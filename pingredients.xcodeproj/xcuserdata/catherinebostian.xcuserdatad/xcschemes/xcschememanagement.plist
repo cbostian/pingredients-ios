@@ -4,8 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>pingredients.xcscheme</key>
+		<key>pingredients dev.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>pingredients.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
