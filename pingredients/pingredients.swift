@@ -10,14 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-#if DEVELOPMENT
-    let baseURLString = "http://localhost:8080"
-#else
-    let baseURLString = "https://pingredients-192501.appspot.com"
-#endif
-
 func getRecipePins(oauthToken: String, callback: @escaping (Array<Recipe>) -> ()) {
-    var request = URLRequest(url: URL(string: baseURLString + "/recipes")!)
+    var request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + "/recipes")!)
     request.setValue(oauthToken, forHTTPHeaderField: "oauth_token")
     Alamofire.request(request).responseJSON(completionHandler: {(response) in
         var recipesToAdd: Array<Recipe> = []
