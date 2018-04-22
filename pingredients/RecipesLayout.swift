@@ -23,7 +23,7 @@ class RecipesLayout: UICollectionViewLayout {
         return (collectionView!.bounds.width - (insets.left + insets.right))
     }
 
-    private var attributesCache = [RecipesLayoutAttributes]()
+    var attributesCache = [RecipesLayoutAttributes]()
 
     override func prepare() {
         if attributesCache.isEmpty {
@@ -60,6 +60,7 @@ class RecipesLayout: UICollectionViewLayout {
                 contentHeight = max(contentHeight, frame.maxY)
                 yOffsets[column] = yOffsets[column] + cellHeight
             }
+            print("LEFTTT!!! " + String(describing: yOffsets[0]) + " RIGHTTTT!!! " + String(describing: yOffsets[1]))
         }
     }
 

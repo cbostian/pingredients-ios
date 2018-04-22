@@ -14,40 +14,40 @@ import PinterestSDK
 class RecipesViewController : UICollectionViewController
 {
     var recipes: Array<Recipe> = []
-    let threshold: CGFloat = 100.0 // threshold from bottom of tableView
+    let threshold: CGFloat = 200.0 // threshold from bottom of tableView
     var isLoadingMore = false // flag
+    var layout: RecipesLayout?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
-        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
+        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, cursor: "", callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
+            self.layout = layout
             layout.delegate = self
         }
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
 
-        print("IM IN A FUNCCCC !!!!")
-        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+        if !isLoadingMore && (maximumOffset - contentOffset <= (scrollView.frame.size.height * 0.75)) {
             // Get more data - API call
-            print("I SCROLLEDD!!!!")
+            getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, cursor: "not blank", callback: updateRecipes)
             self.isLoadingMore = true
-
-            // Update UI
-            DispatchQueue.main.async {
-                print("I SCROLLEDD 2222222!!!!")
-                //                    UICollectionView.reloadData()
-                self.isLoadingMore = false
-            }
+            print("I SCROLLEDD!!!!")
         }
     }
 
     func updateRecipes(recipesToAdd: Array<Recipe>) {
         recipes += recipesToAdd
-        self.collectionView?.reloadData()
+        print("COUNT!!!!! " + String(describing: recipes.count))
+        DispatchQueue.main.async {
+            self.layout?.attributesCache = []
+            self.collectionView?.reloadData()
+            self.isLoadingMore = false
+        }
     }
 }
 
