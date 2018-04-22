@@ -37,6 +37,8 @@
 		99ECA671201951590029DEE6 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA670201951590029DEE6 /* RecipesViewController.swift */; };
 		99ECA674201C00D30029DEE6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA673201C00D30029DEE6 /* Recipe.swift */; };
 		E60A1484362D4A6BD445AE98 /* Pods_pingredientsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976DD4CB4BED7E63EE90229C /* Pods_pingredientsTests.framework */; };
+		F7D3F38C208CF5E600FB77C5 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3F38B208CF5E600FB77C5 /* environment.swift */; };
+		F7D3F38D208CF99B00FB77C5 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3F38B208CF5E600FB77C5 /* environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,7 @@
 		99ECA670201951590029DEE6 /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		99ECA673201C00D30029DEE6 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B8FF59E85E9E5BAB7D6B63A6 /* Pods-pingredients.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingredients.release.xcconfig"; path = "Pods/Target Support Files/Pods-pingredients/Pods-pingredients.release.xcconfig"; sourceTree = "<group>"; };
+		F7D3F38B208CF5E600FB77C5 /* environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 		99615F732033AE1A00CEE11F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F7D3F38B208CF5E600FB77C5 /* environment.swift */,
 				99615F742033AE3300CEE11F /* Constants.swift */,
 			);
 			name = Constants;
@@ -681,6 +685,7 @@
 				992DB163208A395F0074B991 /* RecipesViewController.swift in Sources */,
 				992DB164208A395F0074B991 /* RecipesLayout.swift in Sources */,
 				992DB165208A395F0074B991 /* Constants.swift in Sources */,
+				F7D3F38D208CF99B00FB77C5 /* environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +702,7 @@
 				99ECA671201951590029DEE6 /* RecipesViewController.swift in Sources */,
 				99ECA66F201875540029DEE6 /* RecipesLayout.swift in Sources */,
 				99615F752033AE3300CEE11F /* Constants.swift in Sources */,
+				F7D3F38C208CF5E600FB77C5 /* environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

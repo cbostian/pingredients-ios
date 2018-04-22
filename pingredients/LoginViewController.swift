@@ -17,16 +17,21 @@ class LoginViewController: UIViewController {
     }
 
     override func viewDidAppear(_: Bool) {
-        PDKClient.sharedInstance().authenticate(
-            withPermissions: [PDKClientReadPublicPermissions], from: self,
-            withSuccess: {(PDKResponseObject) in
-                print(PDKClient.sharedInstance().oauthToken)
-                self.performSegue(withIdentifier: "loginSegue", sender: self)
-        },
-            andFailure: {(PDKResponseObject) in
-                print(PDKResponseObject!)
+        if Bundle.main.devEnvironment {
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
-        )
+        else {
+            PDKClient.sharedInstance().authenticate(
+                withPermissions: [PDKClientReadPublicPermissions], from: self,
+                withSuccess: {(PDKResponseObject) in
+                    print(PDKClient.sharedInstance().oauthToken)
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                },
+                andFailure: {(PDKResponseObject) in
+                    print(PDKResponseObject!)
+                }
+            )
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,4 +41,3 @@ class LoginViewController: UIViewController {
 
     
 }
-

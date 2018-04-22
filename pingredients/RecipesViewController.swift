@@ -17,7 +17,7 @@ class RecipesViewController : UICollectionViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRecipePins(oauthToken: PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
+        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             layout.delegate = self
         }
