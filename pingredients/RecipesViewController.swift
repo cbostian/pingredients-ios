@@ -14,12 +14,34 @@ import PinterestSDK
 class RecipesViewController : UICollectionViewController
 {
     var recipes: Array<Recipe> = []
+    let threshold: CGFloat = 100.0 // threshold from bottom of tableView
+    var isLoadingMore = false // flag
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.delegate = self
         getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             layout.delegate = self
+        }
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+
+        print("IM IN A FUNCCCC !!!!")
+        if !isLoadingMore && (maximumOffset - contentOffset <= threshold) {
+            // Get more data - API call
+            print("I SCROLLEDD!!!!")
+            self.isLoadingMore = true
+
+            // Update UI
+            DispatchQueue.main.async {
+                print("I SCROLLEDD 2222222!!!!")
+                //                    UICollectionView.reloadData()
+                self.isLoadingMore = false
+            }
         }
     }
 
