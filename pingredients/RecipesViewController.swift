@@ -41,12 +41,28 @@ class RecipesViewController : UICollectionViewController
     }
 
     func updateRecipes(recipesToAdd: Array<Recipe>) {
+        let minNewRecipesIndex = (self.recipes.count + 1)
         recipes += recipesToAdd
-        print("COUNT!!!!! " + String(describing: recipes.count))
         DispatchQueue.main.async {
-            self.layout?.attributesCache = []
-            self.collectionView?.reloadData()
-            self.isLoadingMore = false
+            if recipesToAdd.count == self.recipes.count {
+                    self.collectionView?.reloadData()
+            } else {
+                print("IM IN AN ELSE YEAHHHH!!!")
+                let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count)
+                print("ITEMMMMMMSSSS!!!  " + String(describing: numberOfItems))
+                let newIndexPaths = numberOfItems.map { IndexPath(item: $0, section: 0) }
+                print("RAY RAYYYYYYYY!!  " + String(describing: newIndexPaths))
+                print("NUMBER OF ITEMS!!!  " + String(describing: self.collectionView?.numberOfItems(inSection: 0)))
+                self.collectionView?.insertItems(at: [IndexPath(item: 28, section: 0)])
+//                self.collectionView?.reloadItems(at: [IndexPath(item: 28, section: 0)])
+
+//
+//                self.collectionView?.performBatchUpdates({ () -> Void in
+//                    self.collectionView?.insertItems(at: newIndexPaths)
+//                }, completion:nil)
+                //self.collectionView?.reloadItems(at: [IndexPath(item: 1, section: 0)])
+                self.isLoadingMore = false
+            }
         }
     }
 }
