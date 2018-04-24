@@ -21,7 +21,7 @@ class RecipesViewController : UICollectionViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
-        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, cursor: "", callback: updateRecipes)
+        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             self.layout = layout
             layout.delegate = self
@@ -34,34 +34,23 @@ class RecipesViewController : UICollectionViewController
 
         if !isLoadingMore && (maximumOffset - contentOffset <= (scrollView.frame.size.height * 0.75)) {
             // Get more data - API call
-            getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, cursor: "not blank", callback: updateRecipes)
+            getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
             self.isLoadingMore = true
-            print("I SCROLLEDD!!!!")
         }
     }
 
     func updateRecipes(recipesToAdd: Array<Recipe>) {
-        let minNewRecipesIndex = (self.recipes.count + 1)
+        let minNewRecipesIndex = (self.recipes.count)
         recipes += recipesToAdd
         DispatchQueue.main.async {
             if recipesToAdd.count == self.recipes.count {
-                    self.collectionView?.reloadData()
+                self.collectionView?.reloadData()
             } else {
-                print("IM IN AN ELSE YEAHHHH!!!")
-                let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count)
-                print("ITEMMMMMMSSSS!!!  " + String(describing: numberOfItems))
-                let newIndexPaths = numberOfItems.map { IndexPath(item: $0, section: 0) }
-                print("RAY RAYYYYYYYY!!  " + String(describing: newIndexPaths))
-                print("NUMBER OF ITEMS!!!  " + String(describing: self.collectionView?.numberOfItems(inSection: 0)))
-                self.collectionView?.insertItems(at: [IndexPath(item: 28, section: 0)])
-//                self.collectionView?.reloadItems(at: [IndexPath(item: 28, section: 0)])
-
-//
-//                self.collectionView?.performBatchUpdates({ () -> Void in
-//                    self.collectionView?.insertItems(at: newIndexPaths)
-//                }, completion:nil)
-                //self.collectionView?.reloadItems(at: [IndexPath(item: 1, section: 0)])
+                let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
+                self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })
                 self.isLoadingMore = false
+                self.layout?.attributesCache = []
+                self.layout?.invalidateLayout()
             }
         }
     }

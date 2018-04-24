@@ -10,19 +10,24 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-func getRecipePins(oauthToken: String, cursor: String, callback: @escaping (Array<Recipe>) -> ()) {
+var cursor = ""
+
+func getRecipePins(oauthToken: String, callback: @escaping (Array<Recipe>) -> ()) {
     var request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + "/recipes")!)
     request.setValue(oauthToken, forHTTPHeaderField: "oauth_token")
     if cursor != "" {
-        request.setValue(cursor, forHTTPHeaderField: "cursor")
+        request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + "/recipes"  + "?cursor=" + cursor)!)
     }
     Alamofire.request(request).responseJSON(completionHandler: {(response) in
         var recipesToAdd: Array<Recipe> = []
+        print("RESPONSEE!!!   " + String(describing: response))
         do {
             print("done loading data")
             for recipe in try JSON(data: response.data!)["data"].array! {
                 recipesToAdd.append(Recipe.fromJSON(recipeJSON: recipe))
             }
+            cursor = try JSON(data: response.data!)["cursor"].string!
+            print("CURSORRR!!!  " + cursor)
             callback(recipesToAdd)
         } catch {
             print(request)
