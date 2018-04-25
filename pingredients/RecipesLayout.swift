@@ -60,7 +60,6 @@ class RecipesLayout: UICollectionViewLayout {
                 contentHeight = max(contentHeight, frame.maxY)
                 yOffsets[column] = yOffsets[column] + cellHeight
             }
-            print("LEFTTT!!! " + String(describing: yOffsets[0]) + " RIGHTTTT!!! " + String(describing: yOffsets[1]))
         }
     }
 
