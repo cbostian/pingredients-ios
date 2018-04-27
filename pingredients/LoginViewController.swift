@@ -26,9 +26,9 @@ class LoginViewController: UIViewController {
                 withPermissions: [PDKClientReadPublicPermissions], from: self,
                 withSuccess: {(PDKResponseObject) in
                     userID = PDKResponseObject?.user().identifier ?? ""
-                    //createUser(oauthToken: PDKClient.sharedInstance().oauthToken, callback: <#T##()#>)
-                    print(PDKClient.sharedInstance().oauthToken)
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    createUser(oauthToken: PDKClient.sharedInstance().oauthToken, callback: {
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    })
                 },
                 andFailure: {(PDKResponseObject) in
                     print(PDKResponseObject!)
@@ -40,6 +40,12 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func login() {
+        createUser(oauthToken: PDKClient.sharedInstance().oauthToken, callback: {
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        })
     }
 
     
