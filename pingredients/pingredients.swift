@@ -27,3 +27,12 @@ func getRecipePins(oauthToken: String, callback: @escaping (Array<Recipe>) -> ()
         }
     })
 }
+
+func createUser(oauthToken: String, callback: @escaping () -> ()) {
+    var request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + "/users/" + userID)!)
+    request.httpMethod = "PUT"
+    request.setValue(oauthToken, forHTTPHeaderField: "oauth_token")
+    Alamofire.request(request).response(completionHandler: {(response) in
+        callback()
+    })
+}

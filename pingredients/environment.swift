@@ -17,3 +17,5 @@ public extension Bundle {
         return object(forInfoDictionaryKey: "devEnvironment") as? Bool ?? false
     }
 }
+
+var userID = ""
