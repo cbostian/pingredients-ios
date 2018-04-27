@@ -23,7 +23,7 @@ class RecipesLayout: UICollectionViewLayout {
         return (collectionView!.bounds.width - (insets.left + insets.right))
     }
 
-    private var attributesCache = [RecipesLayoutAttributes]()
+    var attributesCache = [RecipesLayoutAttributes]()
 
     override func prepare() {
         if attributesCache.isEmpty {

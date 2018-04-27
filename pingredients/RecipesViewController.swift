@@ -14,18 +14,40 @@ import PinterestSDK
 class RecipesViewController : UICollectionViewController
 {
     var recipes: Array<Recipe> = []
+    var isLoadingMore = false
+    var layout: RecipesLayout?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.delegate = self
         getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
+            self.layout = layout
             layout.delegate = self
         }
     }
 
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !isLoadingMore && (scrollView.contentOffset.y +  (scrollView.bounds.height * 2) >= scrollView.contentSize.height) {
+            getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
+            self.isLoadingMore = true
+        }
+    }
+
     func updateRecipes(recipesToAdd: Array<Recipe>) {
+        let minNewRecipesIndex = (self.recipes.count)
         recipes += recipesToAdd
-        self.collectionView?.reloadData()
+        DispatchQueue.main.async {
+            if recipesToAdd.count == self.recipes.count {
+                self.collectionView?.reloadData()
+            } else {
+                let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
+                self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })
+                self.isLoadingMore = false
+                self.layout?.attributesCache = []
+                self.layout?.invalidateLayout()
+            }
+        }
     }
 }
 
