@@ -18,4 +18,6 @@ public extension Bundle {
     }
 }
 
-var userID = ""
+var userID = "dev_user_id"
+
+var oauthToken = "dev_token"

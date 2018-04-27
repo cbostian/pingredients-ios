@@ -18,17 +18,15 @@ class LoginViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         if Bundle.main.devEnvironment {
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
-            userID = "dev_user_id"
+            self.login()
         }
         else {
             PDKClient.sharedInstance().authenticate(
                 withPermissions: [PDKClientReadPublicPermissions], from: self,
                 withSuccess: {(PDKResponseObject) in
                     userID = PDKResponseObject?.user().identifier ?? ""
-                    createUser(oauthToken: PDKClient.sharedInstance().oauthToken, callback: {
-                        self.performSegue(withIdentifier: "loginSegue", sender: self)
-                    })
+                    oauthToken = PDKClient.sharedInstance().oauthToken
+                    self.login()
                 },
                 andFailure: {(PDKResponseObject) in
                     print(PDKResponseObject!)
@@ -43,7 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     func login() {
-        createUser(oauthToken: PDKClient.sharedInstance().oauthToken, callback: {
+        createUser(callback: {
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         })
     }
