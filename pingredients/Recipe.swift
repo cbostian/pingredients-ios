@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-struct Recipe {
+class Recipe {
     var note: String
     var description: String?
     var name: String?
@@ -21,6 +21,31 @@ struct Recipe {
     var ingredients: Dictionary<String, [Ingredient]>
     var servings: Int?
     var board: String
+    var making: Bool
+
+    init(
+        note: String,
+        description: String?,
+        name: String?,
+        image: RecipeImage,
+        original_link: URL,
+        id: String,
+        ingredients: Dictionary<String, [Ingredient]>,
+        servings: Int?,
+        board: String,
+        making: Bool
+        ) {
+        self.note = note
+        self.description = description
+        self.name = name
+        self.image = image
+        self.original_link = original_link
+        self.id = id
+        self.ingredients = ingredients
+        self.servings = servings
+        self.board = board
+        self.making = making
+    }
 
     static func fromJSON(recipeJSON: JSON) -> Recipe {
         return Recipe(
@@ -36,7 +61,8 @@ struct Recipe {
             id: recipeJSON["id"].string!,
             ingredients: Ingredient.ingredientsFromJSON(ingredientsJSON: recipeJSON["metadata"]["recipe"]["ingredients"].array!),
             servings: recipeJSON["metadata"]["servings"]["serves"].int,
-            board: recipeJSON["board"]["name"].string!
+            board: recipeJSON["board"]["name"].string!,
+            making: false
         )
     }
 }
@@ -61,8 +87,28 @@ struct Ingredient {
     }
 }
 
-struct RecipeImage {
+class RecipeImage {
     var url: String
     var height: Int
     var width: Int
+    var downloadedImage: UIImage?
+    var observer: RecipesViewCell?
+
+    init(
+        url: String,
+        height: Int,
+        width: Int
+        ){
+        self.url = url
+        self.height = height
+        self.width = width
+        downloadUIImage()
+    }
+
+    func downloadUIImage() {
+        Alamofire.request(URLRequest(url: URL(string: url)!)).responseData(completionHandler: {(response) in
+            self.downloadedImage = UIImage(data: response.data!)
+            self.observer?.updateImage()
+        })
+    }
 }

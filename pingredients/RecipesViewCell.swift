@@ -17,41 +17,36 @@ class RecipesViewCell: UICollectionViewCell
     @IBOutlet weak var addOrRemove: UIButton!
     private var request: DataRequest?
 
-    var post: Recipe! {
-        didSet {
-            self.updateUI()
-        }
-    }
+    var post: Recipe!
 
-    func updateUI()
+    func updateUI(recipe: Recipe)
     {
+        self.post = recipe
+        post.image.observer = self
         captionLabel.text = post.name ?? post.note
         captionLabel.font = Constants.captionFont
-
-        downloadUIImage(recipeImage: post.image)
+        
+        updateImage()
         postImageView.layer.cornerRadius = 5.0
         postImageView.layer.masksToBounds = true
+
         addOrRemove.layer.cornerRadius = addOrRemove.bounds.size.width / 2
         addOrRemove.clipsToBounds = true
         addOrRemove.addTarget(self, action: #selector(toggleAddOrRemoved), for: .touchUpInside)
+        setAddOrRemoveColor()
     }
 
-    func downloadUIImage(recipeImage: RecipeImage) {
-        self.postImageView.image = nil
-        request?.cancel()
-        request = Alamofire.request(URLRequest(url: URL(string: recipeImage.url)!)).responseData(completionHandler: {(response) in
-            self.postImageView.image = UIImage(data: response.data!)
-        })
+    func updateImage() {
+        self.postImageView.image = post.image.downloadedImage
     }
-
+    
     @objc func toggleAddOrRemoved() {
-        self.making = !self.making
+        self.post.making = !self.post.making
+        setAddOrRemoveColor()
     }
 
-    var making = false {
-        didSet {
-            let jungleGreen = UIColor(red: 0.15, green: 0.76, blue: 0.51, alpha: 1.0)
-            addOrRemove.backgroundColor? = making ? jungleGreen : UIColor.darkGray
-        }
+    func setAddOrRemoveColor() {
+        let jungleGreen = UIColor(red: 0.15, green: 0.76, blue: 0.51, alpha: 1.0)
+        addOrRemove.backgroundColor? = self.post.making ? jungleGreen : UIColor.darkGray
     }
 }
