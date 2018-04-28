@@ -15,6 +15,7 @@ class RecipesViewCell: UICollectionViewCell
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var addOrRemove: UIButton!
+    private var request: DataRequest?
 
     var post: Recipe! {
         didSet {
@@ -35,7 +36,9 @@ class RecipesViewCell: UICollectionViewCell
     }
 
     func downloadUIImage(recipeImage: RecipeImage) {
-        Alamofire.request(URLRequest(url: URL(string: recipeImage.url)!)).responseData(completionHandler: {(response) in
+        self.postImageView.image = nil
+        request?.cancel()
+        request = Alamofire.request(URLRequest(url: URL(string: recipeImage.url)!)).responseData(completionHandler: {(response) in
             self.postImageView.image = UIImage(data: response.data!)
         })
     }
