@@ -60,7 +60,7 @@ extension RecipesViewController
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipesCell", for: indexPath) as! RecipesViewCell
-        cell.post = self.recipes[indexPath.item]
+        cell.updateUI(recipe: self.recipes[indexPath.item])
         return cell
     }
 }
