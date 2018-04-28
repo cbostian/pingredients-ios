@@ -32,11 +32,23 @@ class RecipesViewCell: UICollectionViewCell
         postImageView.layer.masksToBounds = true
         addOrRemove.layer.cornerRadius = addOrRemove.bounds.size.width / 2
         addOrRemove.clipsToBounds = true
+        addOrRemove.addTarget(self, action: #selector(toggleAddOrRemoved), for: .touchUpInside)
     }
 
     func downloadUIImage(recipeImage: RecipeImage) {
         Alamofire.request(URLRequest(url: URL(string: recipeImage.url)!)).responseData(completionHandler: {(response) in
             self.postImageView.image = UIImage(data: response.data!)
         })
+    }
+
+    @objc func toggleAddOrRemoved() {
+        self.making = !self.making
+    }
+
+    var making = false {
+        didSet {
+            let jungleGreen = UIColor(red: 0.15, green: 0.76, blue: 0.51, alpha: 1.0)
+            addOrRemove.backgroundColor? = making ? jungleGreen : UIColor.darkGray
+        }
     }
 }
