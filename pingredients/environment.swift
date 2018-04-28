@@ -17,3 +17,7 @@ public extension Bundle {
         return object(forInfoDictionaryKey: "devEnvironment") as? Bool ?? false
     }
 }
+
+var userID = "dev_user_id"
+
+var oauthToken = "dev_token"

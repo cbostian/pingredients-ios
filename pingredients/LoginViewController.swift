@@ -18,14 +18,15 @@ class LoginViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         if Bundle.main.devEnvironment {
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
+            self.login()
         }
         else {
             PDKClient.sharedInstance().authenticate(
                 withPermissions: [PDKClientReadPublicPermissions], from: self,
                 withSuccess: {(PDKResponseObject) in
-                    print(PDKClient.sharedInstance().oauthToken)
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    userID = PDKResponseObject?.user().identifier ?? ""
+                    oauthToken = PDKClient.sharedInstance().oauthToken
+                    self.login()
                 },
                 andFailure: {(PDKResponseObject) in
                     print(PDKResponseObject!)
@@ -37,6 +38,12 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func login() {
+        createUser(callback: {
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        })
     }
 
     

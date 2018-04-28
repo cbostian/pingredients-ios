@@ -20,7 +20,7 @@ class RecipesViewController : UICollectionViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
-        getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
+        getRecipePins(callback: updateRecipes)
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             self.layout = layout
             layout.delegate = self
@@ -29,7 +29,7 @@ class RecipesViewController : UICollectionViewController
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !isLoadingMore && (scrollView.contentOffset.y +  (scrollView.bounds.height * 2) >= scrollView.contentSize.height) {
-            getRecipePins(oauthToken: Bundle.main.devEnvironment ? "devToken" : PDKClient.sharedInstance().oauthToken, callback: updateRecipes)
+            getRecipePins(callback: updateRecipes)
             self.isLoadingMore = true
         }
     }
