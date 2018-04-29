@@ -92,7 +92,6 @@ class RecipeImage {
     var height: Int
     var width: Int
     var downloadedImage: UIImage?
-    var observer: RecipesViewCell?
 
     init(
         url: String,
@@ -102,13 +101,5 @@ class RecipeImage {
         self.url = url
         self.height = height
         self.width = width
-        downloadUIImage()
-    }
-
-    func downloadUIImage() {
-        Alamofire.request(URLRequest(url: URL(string: url)!)).responseData(completionHandler: {(response) in
-            self.downloadedImage = UIImage(data: response.data!)
-            self.observer?.updateImage()
-        })
     }
 }
