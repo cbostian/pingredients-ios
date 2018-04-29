@@ -40,7 +40,7 @@ class RecipesViewCell: UICollectionViewCell
     }
     
     @objc func toggleAddOrRemoved() {
-        post.making = !self.post.making
+        post.making = !post.making
         setAddOrRemoveColor()
     }
 
