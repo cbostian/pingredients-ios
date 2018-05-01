@@ -19,7 +19,7 @@ class Recipe {
     var original_link: URL
     var id: String
     var ingredients: Dictionary<String, [Ingredient]>
-    var servings: Int?
+    var servings: Servings
     var board: String
     var making: Bool
 
@@ -31,7 +31,7 @@ class Recipe {
         original_link: URL,
         id: String,
         ingredients: Dictionary<String, [Ingredient]>,
-        servings: Int?,
+        servings: Servings,
         board: String,
         making: Bool
         ) {
@@ -60,7 +60,11 @@ class Recipe {
             original_link: recipeJSON["original_link"].url!,
             id: recipeJSON["id"].string!,
             ingredients: Ingredient.ingredientsFromJSON(ingredientsJSON: recipeJSON["metadata"]["recipe"]["ingredients"]),
-            servings: recipeJSON["metadata"]["servings"]["serves"].int,
+            servings: Servings (
+                serves: recipeJSON["metadata"]["servings"]["serves"].float,
+                yields: recipeJSON["metadata"]["servings"]["yields"].float,
+                yield_units: recipeJSON["metadata"]["servings"]["yield_units"].string
+            ),
             board: recipeJSON["board"]["name"].string!,
             making: false
         )
@@ -98,5 +102,21 @@ class RecipeImage {
         self.url = url
         self.height = height
         self.width = width
+    }
+}
+
+class Servings {
+    var serves: Float?
+    var yields: Float?
+    var yield_units: String?
+
+    init(
+        serves: Float?,
+        yields: Float?,
+        yield_units: String?
+        ){
+        self.serves = serves
+        self.yields = yields
+        self.yield_units = yield_units
     }
 }
