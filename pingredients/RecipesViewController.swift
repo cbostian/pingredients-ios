@@ -38,7 +38,7 @@ class RecipesViewController : UICollectionViewController
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if Constants.columns < 3 {
-            AppUtility.lockOrientation(.all)
+            orientationUtility.lockOrientation(.all)
         }
     }
 
