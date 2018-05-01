@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
     func login() {
         createUser(callback: {
             if Constants.columns < 3 {
-                AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+                orientationUtility.lockOrientation(.portrait, andRotateTo: .portrait)
             }
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         })
