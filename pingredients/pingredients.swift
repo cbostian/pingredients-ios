@@ -38,8 +38,8 @@ func createUser(callback: @escaping () -> ()) {
     })
 }
 
-func activateRecipe(recipe: Recipe, callback: @escaping () -> ()) {
-    makePingredientsRequest(route: "/activate-recipe", method: "POST", payload: recipe.json, responseHandler: {(response) in
+func makeRecipe(recipe: Recipe, callback: @escaping () -> ()) {
+    makePingredientsRequest(route: "/make-recipe", method: "POST", payload: recipe.json, responseHandler: {(response) in
         callback()
     })
 }
