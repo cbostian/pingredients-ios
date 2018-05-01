@@ -10,7 +10,15 @@ import Foundation
 import UIKit
 
 struct Constants {
-    static let columns: Int = 2
+    static var columns: Int {
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait {
+            return 3
+        } else if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape {
+            return 4
+        } else {
+            return 2
+        }
+    }
     static let cellPadding: CGFloat = 5.0
     
     static var captionFont: UIFont {
