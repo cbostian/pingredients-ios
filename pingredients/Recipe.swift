@@ -22,6 +22,7 @@ class Recipe {
     var servings: Servings
     var board: String
     var making: Bool
+    var json: JSON
 
     init(
         note: String,
@@ -33,7 +34,8 @@ class Recipe {
         ingredients: Dictionary<String, [Ingredient]>,
         servings: Servings,
         board: String,
-        making: Bool
+        making: Bool,
+        json: JSON
         ) {
         self.note = note
         self.description = description
@@ -45,6 +47,7 @@ class Recipe {
         self.servings = servings
         self.board = board
         self.making = making
+        self.json = json
     }
 
     static func fromJSON(recipeJSON: JSON) -> Recipe {
@@ -66,7 +69,8 @@ class Recipe {
                 yield_units: recipeJSON["metadata"]["servings"]["yield_units"].string
             ),
             board: recipeJSON["board"]["name"].string!,
-            making: false
+            making: false,
+            json: recipeJSON
         )
     }
 }
