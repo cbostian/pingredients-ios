@@ -59,7 +59,7 @@ class Recipe {
             ),
             original_link: recipeJSON["original_link"].url!,
             id: recipeJSON["id"].string!,
-            ingredients: Ingredient.ingredientsFromJSON(ingredientsJSON: recipeJSON["metadata"]["recipe"]["ingredients"].array!),
+            ingredients: Ingredient.ingredientsFromJSON(ingredientsJSON: recipeJSON["metadata"]["recipe"]["ingredients"]),
             servings: recipeJSON["metadata"]["servings"]["serves"].int,
             board: recipeJSON["board"]["name"].string!,
             making: false
@@ -71,18 +71,15 @@ struct Ingredient {
     var name: String
     var amount: String?
 
-    static func ingredientsFromJSON(ingredientsJSON: [JSON]) -> Dictionary<String, [Ingredient]> {
+    static func ingredientsFromJSON(ingredientsJSON: JSON) -> Dictionary<String, [Ingredient]> {
         var ingredientDict = Dictionary<String, Array<Ingredient>>()
-        for ingredients in ingredientsJSON {
-            ingredientDict[ingredients["category"].string!] = []
-            for ingredient in ingredients["ingredients"].array! {
-                ingredientDict[ingredients["category"].string!]!.append(
-                    Ingredient(
-                        name: ingredient["name"].string!,
-                        amount: ingredient["amount"].string)
-                )
+        for (category, ingredients) in ingredientsJSON {
+            ingredientDict[category] = []
+            for ingredient in ingredients.array! {
+                ingredientDict[category]!.append(Ingredient(name: ingredient["name"].string!, amount: ingredient["amount"].string))
             }
         }
+        
         return ingredientDict
     }
 }
