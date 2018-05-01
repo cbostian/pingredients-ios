@@ -25,12 +25,20 @@ class RecipesViewController : UICollectionViewController
             self.layout = layout
             layout.delegate = self
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(ipadWasRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !isLoadingMore && (scrollView.contentOffset.y +  (scrollView.bounds.height * 2) >= scrollView.contentSize.height) {
             getRecipePins(callback: updateRecipes)
             self.isLoadingMore = true
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if Constants.columns < 3 {
+            AppUtility.lockOrientation(.all)
         }
     }
 
@@ -47,6 +55,18 @@ class RecipesViewController : UICollectionViewController
                 self.layout?.attributesCache = []
                 self.layout?.invalidateLayout()
             }
+        }
+    }
+
+    @objc func ipadWasRotated() {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) && Constants.columns > 2 {
+            self.layout?.attributesCache = []
+            self.layout?.invalidateLayout()
+        }
+
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) && Constants.columns > 2 {
+            self.layout?.attributesCache = []
+            self.layout?.invalidateLayout()
         }
     }
 }
