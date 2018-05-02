@@ -72,9 +72,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tu-dr-law">
                                 <rect key="frame" x="8" y="44" width="359" height="685"/>
-                                <connections>
-                                    <segue destination="1Uk-J2-cxR" kind="embed" id="TPZ-NL-cEo"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,13 +94,13 @@
             <objects>
                 <collectionViewController id="1Uk-J2-cxR" customClass="RecipesViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bde-6O-KWD">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="685"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="g4t-vN-qT7" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
-                                <rect key="frame" x="45" y="0.0" width="269" height="285"/>
+                                <rect key="frame" x="53" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="269" height="285"/>
