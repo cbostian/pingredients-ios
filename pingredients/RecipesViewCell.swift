@@ -43,9 +43,9 @@ class RecipesViewCell: UICollectionViewCell
         self.post.making = !self.post.making
         self.setAddOrRemoveColor()
         if self.post.making == true {
-            makingRecipe(recipe: post, callback: {})
+            makeRecipe(recipe: post, callback: {})
         } else {
-            notMakingRecipe(recipe: post, recipeID: post.id, callback: {})
+            unmakeRecipe(recipe: post, recipeID: post.id, callback: {})
         }
     }
 
