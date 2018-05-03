@@ -69,7 +69,7 @@ class Recipe {
                 yield_units: recipeJSON["metadata"]["servings"]["yield_units"].string
             ),
             board: recipeJSON["board"]["name"].string!,
-            making: false,
+            making: recipeJSON["making"].bool!,
             json: recipeJSON
         )
     }
