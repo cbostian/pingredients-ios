@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-3967" y="1695"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Pingredients Tab Controller-->
         <scene sceneID="SMj-bk-PYp">
             <objects>
-                <tabBarController id="n24-vV-Uch" sceneMemberID="viewController">
+                <tabBarController id="n24-vV-Uch" customClass="PingredientsTabController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q8Q-6w-eyK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -46,17 +46,31 @@
             </objects>
             <point key="canvasLocation" x="-3042" y="1694"/>
         </scene>
-        <!--Item-->
+        <!--Making Only-->
         <scene sceneID="rJ9-w9-oS4">
             <objects>
-                <viewController id="v0r-at-ATz" sceneMemberID="viewController">
+                <viewController id="v0r-at-ATz" customClass="MakingOnlyContainer" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Add-gH-ds5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFK-TG-ghD">
+                                <rect key="frame" x="8" y="44" width="359" height="677"/>
+                                <connections>
+                                    <segue destination="1Uk-J2-cxR" kind="embed" identifier="makingOnly" id="dIy-Dz-4BO"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pFK-TG-ghD" firstAttribute="leading" secondItem="l2w-76-gvP" secondAttribute="leading" constant="8" id="5hC-HI-oUk"/>
+                            <constraint firstItem="pFK-TG-ghD" firstAttribute="centerX" secondItem="l2w-76-gvP" secondAttribute="centerX" id="5xU-Na-XmW"/>
+                            <constraint firstItem="pFK-TG-ghD" firstAttribute="top" secondItem="l2w-76-gvP" secondAttribute="top" id="ZGj-N9-buP"/>
+                            <constraint firstItem="l2w-76-gvP" firstAttribute="bottom" secondItem="pFK-TG-ghD" secondAttribute="bottom" constant="8" id="dia-BG-i6r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="l2w-76-gvP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bYl-PH-lVW"/>
+                    <tabBarItem key="tabBarItem" title="Making Only" image="Cooking" id="bYl-PH-lVW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZy-B9-8e4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +86,9 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tu-dr-law">
                                 <rect key="frame" x="8" y="44" width="359" height="685"/>
+                                <connections>
+                                    <segue destination="1Uk-J2-cxR" kind="embed" id="epB-bE-7xF"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +100,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aLZ-8v-6Zk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="phw-F1-2yK"/>
+                    <tabBarItem key="tabBarItem" title="All Recipes" id="phw-F1-2yK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hou-kZ-xbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,13 +111,13 @@
             <objects>
                 <collectionViewController id="1Uk-J2-cxR" customClass="RecipesViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bde-6O-KWD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="677"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="g4t-vN-qT7" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
-                                <rect key="frame" x="53" y="0.0" width="269" height="285"/>
+                                <rect key="frame" x="45" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="269" height="285"/>
@@ -158,5 +175,9 @@
     </scenes>
     <resources>
         <image name="Cook" width="21" height="21"/>
+        <image name="Cooking" width="21" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dIy-Dz-4BO"/>
+    </inferredMetricsTieBreakers>
 </document>

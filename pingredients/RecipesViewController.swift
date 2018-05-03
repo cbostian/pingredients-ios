@@ -16,7 +16,8 @@ class RecipesViewController : UICollectionViewController
     var recipes: Array<Recipe> = []
     var isLoadingMore = false
     var layout: RecipesLayout?
-
+    var makingOnly = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
@@ -26,6 +27,10 @@ class RecipesViewController : UICollectionViewController
             layout.delegate = self
         }
         NotificationCenter.default.addObserver(self, selector: #selector(ipadWasRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(tabBarController?.selectedIndex)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

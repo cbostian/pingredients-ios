@@ -48,6 +48,5 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         })
     }
-
     
 }
