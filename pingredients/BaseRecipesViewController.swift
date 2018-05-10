@@ -40,15 +40,7 @@ class BaseRecipesViewController : UICollectionViewController
     
     
     @objc func ipadWasRotated() {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) && Constants.columns > 2 {
-            self.layout?.attributesCache = []
-            self.layout?.invalidateLayout()
-        }
-        
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) && Constants.columns > 2 {
-            self.layout?.attributesCache = []
-            self.layout?.invalidateLayout()
-        }
+        self.layout?.invalidateLayout()
     }
 }
 

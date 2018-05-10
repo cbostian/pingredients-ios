@@ -16,7 +16,6 @@ class MakingOnlyViewController : BaseRecipesViewController
     func overwriteRecipes(newRecipes: [Recipe]) {
         recipes = newRecipes
         collectionView?.reloadData()
-        layout?.attributesCache = []
         layout?.invalidateLayout()
     }
     
@@ -32,7 +31,6 @@ class MakingOnlyViewController : BaseRecipesViewController
         let index = (collectionView?.indexPath(for: cell))!
         recipes.remove(at: index.item)
         collectionView?.performBatchUpdates({
-            layout?.attributesCache = []
             layout?.invalidateLayout()
             collectionView?.deleteItems(at: [index])
         }, completion: nil)

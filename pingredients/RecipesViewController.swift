@@ -30,7 +30,6 @@ class RecipesViewController : BaseRecipesViewController
                 let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
                 self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })
                 self.isLoadingMore = false
-                self.layout?.attributesCache = []
                 self.layout?.invalidateLayout()
             }
         }

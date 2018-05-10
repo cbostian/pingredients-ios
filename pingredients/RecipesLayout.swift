@@ -99,6 +99,11 @@ class RecipesLayout: UICollectionViewLayout {
 
         return layoutAttributes
     }
+    
+    override func invalidateLayout() {
+        attributesCache = []
+        super.invalidateLayout()
+    }
 }
 
 class RecipesLayoutAttributes: UICollectionViewLayoutAttributes
