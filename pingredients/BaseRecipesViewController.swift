@@ -7,15 +7,6 @@
 //
 
 import Foundation
-
-//
-//  RecipesViewController.swift
-//  pingredients
-//
-//  Created by Catherine Bostian on 1/24/18.
-//  Copyright © 2018 Catherine Bostian. All rights reserved.
-//
-
 import UIKit
 import AVKit
 import AVFoundation
