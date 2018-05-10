@@ -14,7 +14,7 @@ import PinterestSDK
 class RecipesViewController : BaseRecipesViewController
 {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if  !isLoadingMore && (scrollView.contentOffset.y +  (scrollView.bounds.height * 2) >= scrollView.contentSize.height) {
+        if !isLoadingMore && (scrollView.contentOffset.y +  (scrollView.bounds.height * 2) >= scrollView.contentSize.height) {
             loadRecipes()
             self.isLoadingMore = true
         }
