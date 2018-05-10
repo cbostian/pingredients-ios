@@ -39,13 +39,6 @@ class BaseRecipesViewController : UICollectionViewController
         NotificationCenter.default.addObserver(self, selector: #selector(ipadWasRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if Constants.columns < 3 {
-            orientationUtility.lockOrientation(.all)
-        }
-    }
-    
     func loadRecipes() {
         preconditionFailure("This method must be overridden")
     }
