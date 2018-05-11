@@ -10,43 +10,50 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+let RECIPES_ENDPOINT = "/recipes"
+let USERS_ENDPOINT = "/users/"
+let MAKING_RECIPES_ENDPOINT = "/making-recipes"
+
 var cursor = ""
 
-func getRecipePins(callback: @escaping (Array<Recipe>) -> ()) {
+func getRecipePins(callback: @escaping ([Recipe]) -> ()) {
     var urlArgs = ""
     if cursor != "" {
         urlArgs = "?cursor=" + cursor
     }
-    makePingredientsRequest(route: "/recipes", urlArgs: urlArgs, responseHandler: {(response) in
-        var recipesToAdd: Array<Recipe> = []
+    makePingredientsRequest(route: RECIPES_ENDPOINT, urlArgs: urlArgs, responseHandler: {(response) in
+        let recipesToAdd = recipesFromJSON(networkResponseData: response)
         do {
-            for recipe in try JSON(data: response.data!)["data"].array! {
-                recipesToAdd.append(Recipe.fromJSON(recipeJSON: recipe))
-            }
             cursor = try JSON(data: response.data!)["cursor"].string ?? ""
-            callback(recipesToAdd)
         } catch {
             print(error)
         }
+        callback(recipesToAdd)
     })
     
 }
 
 func createUser(callback: @escaping () -> ()) {
-    makePingredientsRequest(route: "/users/", urlArgs: userID, method: "PUT", tokenOnly: true, responseHandler: {(response) in
+    makePingredientsRequest(route: USERS_ENDPOINT, urlArgs: userID, method: "PUT", tokenOnly: true, responseHandler: {(response) in
         callback()
     })
 }
 
 func makeRecipe(recipe: Recipe, callback: @escaping () -> ()) {
-    makePingredientsRequest(route: "/making-recipes", method: "POST", payload: recipe.json, responseHandler: {(response) in
+    makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT, method: "POST", payload: recipe.json, responseHandler: {(response) in
         callback()
     })
 }
 
-func unmakeRecipe(recipe: Recipe, recipeID: String, callback: @escaping () -> ()) {
-    makePingredientsRequest(route: "/making-recipes/", urlArgs: recipeID, method: "DELETE", responseHandler: {(response) in
-        callback()
+func unmakeRecipe(recipe: Recipe, recipeID: String, cell: RecipesViewCell, callback: @escaping (RecipesViewCell) -> ()) {
+    makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT + "/", urlArgs: recipeID, method: "DELETE", responseHandler: {(response) in
+        callback(cell)
+    })
+}
+
+func getMakingRecipes(callback: @escaping ([Recipe]) -> ()) {
+    makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT, responseHandler:{(response) in
+        callback(recipesFromJSON(networkResponseData: response))
     })
 }
 
@@ -64,4 +71,16 @@ func makePingredientsRequest(route: String, urlArgs: String = "", method: String
     Alamofire.request(request).responseJSON(completionHandler: {(response) in
         responseHandler(response)
     })
+}
+
+func recipesFromJSON(networkResponseData: DataResponse<Any>) -> [Recipe] {
+    var recipes: [Recipe] = []
+    do {
+        for recipe in try JSON(data: networkResponseData.data!)["data"].array! {
+            recipes.append(Recipe.fromJSON(recipeJSON: recipe))
+        }
+    } catch {
+        print(error)
+    }
+    return recipes
 }

@@ -12,6 +12,8 @@ protocol RecipesLayoutDelegate: class {
     func heightForPhoto(at indexPath: IndexPath, width: CGFloat) -> CGFloat
 
     func heightForCaption(at indexPath:IndexPath, width: CGFloat) -> CGFloat
+    
+    func numberOfItems() -> Int
 }
 
 struct orientationUtility {
@@ -44,12 +46,13 @@ class RecipesLayout: UICollectionViewLayout {
 
     override func prepare() {
         if attributesCache.isEmpty {
+            contentHeight = 0.0
             let columnWidth = contentWidth / CGFloat(Constants.columns)
             let cellWidth = columnWidth
 
             var yOffsets = [CGFloat](repeating: 0, count: Constants.columns)
 
-            for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
+            for item in 0 ..< delegate!.numberOfItems() {
                 //place the item in the shortest column to keep columns balanced
                 var column = 0
                 for (offsetIndex, offset) in yOffsets.enumerated() {
@@ -95,6 +98,11 @@ class RecipesLayout: UICollectionViewLayout {
         }
 
         return layoutAttributes
+    }
+    
+    override func invalidateLayout() {
+        attributesCache = []
+        super.invalidateLayout()
     }
 }
 

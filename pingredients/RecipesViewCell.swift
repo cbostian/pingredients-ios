@@ -16,6 +16,7 @@ class RecipesViewCell: UICollectionViewCell
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var addOrRemove: UIButton!
     private var request: DataRequest?
+    var unmakeCallback: ((RecipesViewCell) -> ())?
 
     var post: Recipe!
 
@@ -24,7 +25,7 @@ class RecipesViewCell: UICollectionViewCell
         self.post = recipe
         captionLabel.text = post.name ?? post.note
         captionLabel.font = Constants.captionFont
-        
+        clearImage()
         if let img = post.image.downloadedImage {
             postImageView.image = img
         } else {
@@ -35,7 +36,7 @@ class RecipesViewCell: UICollectionViewCell
 
         addOrRemove.layer.cornerRadius = addOrRemove.bounds.size.width / 2
         addOrRemove.clipsToBounds = true
-        addOrRemove.addTarget(self, action: #selector(toggleAddOrRemoved), for: .touchUpInside)
+        addOrRemove.addTarget(self, action: #selector(toggleAddOrRemoved), for: .primaryActionTriggered)
         setAddOrRemoveColor()
     }
     
@@ -45,7 +46,7 @@ class RecipesViewCell: UICollectionViewCell
         if self.post.making == true {
             makeRecipe(recipe: post, callback: {})
         } else {
-            unmakeRecipe(recipe: post, recipeID: post.id, callback: {})
+            unmakeRecipe(recipe: post, recipeID: post.id, cell: self, callback: unmakeCallback!)
         }
     }
 
@@ -54,9 +55,12 @@ class RecipesViewCell: UICollectionViewCell
         addOrRemove.backgroundColor? = self.post.making ? jungleGreen : UIColor.darkGray
     }
     
-    func downloadUIImage() {
+    func clearImage() {
         postImageView.image = nil
         request?.cancel()
+    }
+    
+    func downloadUIImage() {
         request = Alamofire.request(URLRequest(url: URL(string: post.image.url)!)).responseData(completionHandler: {(response) in
             self.postImageView.image = UIImage(data: response.data!)
             self.post.image.downloadedImage = self.postImageView.image
