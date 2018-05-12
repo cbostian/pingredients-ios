@@ -38,11 +38,25 @@ class MakingOnlyViewController : BaseRecipesViewController
     }
     
     func unmakeInRecipesController(recipeID: String) {
+        unmakeModelInRecipesViewController(recipeID: recipeID)
+        unmakeViewInRecipesController(recipeID: recipeID)
+    }
+    
+    func unmakeViewInRecipesController(recipeID: String) {
         for recipesControllerCell in recipesViewController!.collectionView!.visibleCells {
             let recipesCell = recipesControllerCell as! RecipesViewCell
             if recipesCell.post.id == recipeID {
                 recipesCell.post.making = false
                 recipesCell.setAddOrRemoveColor()
+                return
+            }
+        }
+    }
+    
+    func unmakeModelInRecipesViewController(recipeID: String) {
+        for recipe in recipesViewController!.recipes {
+            if recipe.id == recipeID {
+                recipe.making = false
                 return
             }
         }
