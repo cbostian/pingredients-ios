@@ -30,9 +30,21 @@ class MakingOnlyViewController : BaseRecipesViewController
     override func unmakeCallback(cell: RecipesViewCell) {
         let index = (collectionView?.indexPath(for: cell))!
         recipes.remove(at: index.item)
+        unmakeInRecipesController(recipeID: cell.post.id)
         collectionView?.performBatchUpdates({
             layout?.invalidateLayout()
             collectionView?.deleteItems(at: [index])
         }, completion: nil)
+    }
+    
+    func unmakeInRecipesController(recipeID: String) {
+        for recipesControllerCell in recipesViewController!.collectionView!.visibleCells {
+            let recipesCell = recipesControllerCell as! RecipesViewCell
+            if recipesCell.post.id == recipeID {
+                recipesCell.post.making = false
+                recipesCell.setAddOrRemoveColor()
+                return
+            }
+        }
     }
 }
