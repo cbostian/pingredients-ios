@@ -22,6 +22,7 @@ class BaseRecipesViewController : UICollectionViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
+        collectionView?.isPrefetchingEnabled = false
         loadRecipes()
         if let layout = collectionView?.collectionViewLayout as? RecipesLayout {
             self.layout = layout
