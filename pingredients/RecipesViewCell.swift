@@ -41,13 +41,19 @@ class RecipesViewCell: UICollectionViewCell
     }
     
     @objc func toggleAddOrRemoved() {
+        addOrRemove.isEnabled = false
         self.post.making = !self.post.making
         self.setAddOrRemoveColor()
         if self.post.making == true {
-            makeRecipe(recipe: post, callback: {})
+            makeRecipe(recipe: post, callback: {self.addOrRemove.isEnabled = true})
         } else {
-            unmakeRecipe(recipe: post, recipeID: post.id, cell: self, callback: unmakeCallback!)
+            unmakeRecipe(recipe: post, recipeID: post.id, cell: self, callback: unmakeAndEnableButton)
         }
+    }
+    
+    func unmakeAndEnableButton(cell: RecipesViewCell) {
+        unmakeCallback!(cell)
+        self.addOrRemove.isEnabled = true
     }
 
     func setAddOrRemoveColor() {
