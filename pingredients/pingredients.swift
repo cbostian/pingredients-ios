@@ -50,6 +50,20 @@ func unmakeRecipe(recipe: Recipe, recipeID: String, callback: @escaping () -> ()
     })
 }
 
+//func getIngredients(callback: @escaping () -> ()) {
+//    makePingredientsRequest(route: "/ingredients", responseHandler: {(response) in
+//        var ingredients = {}
+//        do {
+//            for category in try JSON(data: response.data!).array! {
+//                ingredients.append(Recipe.fromJSON(recipeJSON: recipe))
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    })
+//
+//}
+
 func makePingredientsRequest(route: String, urlArgs: String = "", method: String = "GET", tokenOnly: Bool = false, payload: JSON = JSON.null, responseHandler: @escaping (DataResponse<Any>) -> Void) {
     var request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + route + urlArgs)!)
     request.setValue(oauthToken, forHTTPHeaderField: "oauth_token")

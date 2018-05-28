@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="-3042" y="1694"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="rJ9-w9-oS4">
             <objects>
                 <viewController id="v0r-at-ATz" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="l2w-76-gvP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bYl-PH-lVW"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="bYl-PH-lVW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZy-B9-8e4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +72,9 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tu-dr-law">
                                 <rect key="frame" x="8" y="44" width="359" height="685"/>
+                                <connections>
+                                    <segue destination="1Uk-J2-cxR" kind="embed" id="1vH-Gg-NzR"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +86,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aLZ-8v-6Zk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="phw-F1-2yK"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="pingredients-30" landscapeImage="pingredients-30" selectedImage="pingredients-30" id="phw-F1-2yK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hou-kZ-xbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,13 +97,13 @@
             <objects>
                 <collectionViewController id="1Uk-J2-cxR" customClass="RecipesViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bde-6O-KWD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="685"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="g4t-vN-qT7" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
-                                <rect key="frame" x="53" y="0.0" width="269" height="285"/>
+                                <rect key="frame" x="45" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="269" height="285"/>
@@ -158,5 +161,6 @@
     </scenes>
     <resources>
         <image name="Cook" width="21" height="21"/>
+        <image name="pingredients-30" width="30" height="30"/>
     </resources>
 </document>
