@@ -24,7 +24,7 @@ func getRecipePins(callback: @escaping ([Recipe]) -> ()) {
     makePingredientsRequest(route: RECIPES_ENDPOINT, urlArgs: urlArgs, responseHandler: {(response) in
         let recipesToAdd = recipesFromJSON(networkResponseData: response)
         do {
-            cursor = try JSON(data: response.data!)["cursor"].string ?? ""
+            cursor = try JSON(data: response!)["cursor"].string ?? ""
         } catch {
             print(error)
         }
@@ -57,7 +57,7 @@ func getMakingRecipes(callback: @escaping ([Recipe]) -> ()) {
     })
 }
 
-func makePingredientsRequest(route: String, urlArgs: String = "", method: String = "GET", tokenOnly: Bool = false, payload: JSON = JSON.null, responseHandler: @escaping (DataResponse<Any>) -> Void) {
+func makePingredientsRequest(route: String, urlArgs: String = "", method: String = "GET", tokenOnly: Bool = false, payload: JSON = JSON.null, responseHandler: @escaping (Data?) -> Void) {
     var request = URLRequest(url: URL(string: Bundle.main.pingredientsURL + route + urlArgs)!)
     request.setValue(oauthToken, forHTTPHeaderField: "oauth_token")
     if !tokenOnly {
@@ -67,16 +67,18 @@ func makePingredientsRequest(route: String, urlArgs: String = "", method: String
     if method == "POST" && payload != JSON.null {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: payload.rawValue)
+        //print(payload.rawValue)
     }
-    Alamofire.request(request).responseJSON(completionHandler: {(response) in
-        responseHandler(response)
+    Alamofire.request(request).response(completionHandler: {(response) in
+        //print(String(data: response.data!, encoding: .utf8))
+        responseHandler(response.data)
     })
 }
 
-func recipesFromJSON(networkResponseData: DataResponse<Any>) -> [Recipe] {
+func recipesFromJSON(networkResponseData: Data?) -> [Recipe] {
     var recipes: [Recipe] = []
     do {
-        for recipe in try JSON(data: networkResponseData.data!)["data"].array! {
+        for recipe in try JSON(data: networkResponseData!)["data"].array! {
             recipes.append(Recipe.fromJSON(recipeJSON: recipe))
         }
     } catch {

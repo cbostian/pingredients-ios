@@ -51,6 +51,7 @@ class Recipe {
     }
 
     static func fromJSON(recipeJSON: JSON) -> Recipe {
+        print(recipeJSON)
         return Recipe(
             note: recipeJSON["note"].string!,
             description: recipeJSON["metadata"]["article"]["description"].string,
@@ -77,14 +78,14 @@ class Recipe {
 
 struct Ingredient {
     var name: String
-    var amount: String?
+    var amount: Float
 
     static func ingredientsFromJSON(ingredientsJSON: JSON) -> Dictionary<String, [Ingredient]> {
         var ingredientDict = Dictionary<String, Array<Ingredient>>()
         for (category, ingredients) in ingredientsJSON {
             ingredientDict[category] = []
             for ingredient in ingredients.array! {
-                ingredientDict[category]!.append(Ingredient(name: ingredient["name"].string!, amount: ingredient["amount"].string))
+                ingredientDict[category]!.append(Ingredient(name: ingredient["name"].string!, amount: ingredient["amount"].float!))
             }
         }
         
