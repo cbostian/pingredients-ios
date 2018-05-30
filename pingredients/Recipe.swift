@@ -73,22 +73,59 @@ class Recipe {
             json: recipeJSON
         )
     }
+    
+    func toJson() -> JSON {
+        return JSON([
+            "board": ["name": board],
+            "id": id,
+            "image": image.toDict(),
+            "metadata": [
+                "article": [
+                    "description": description ?? "",
+                    "name": name ?? ""
+                ],
+                "recipe": [
+                    "ingredients": ingredients.mapValues { categoryIngredients in
+                        categoryIngredients.map { ingredient in
+                            ingredient.toDict()
+                        }
+                    }
+                ],
+            ],
+            "note": note,
+            "original_link": original_link.absoluteString,
+            "servings": servings.toDict()
+        ])
+    }
 }
 
 struct Ingredient {
     var name: String
-    var amount: String?
+    var amount: Float
+    var unit: String
 
     static func ingredientsFromJSON(ingredientsJSON: JSON) -> Dictionary<String, [Ingredient]> {
         var ingredientDict = Dictionary<String, Array<Ingredient>>()
         for (category, ingredients) in ingredientsJSON {
             ingredientDict[category] = []
             for ingredient in ingredients.array! {
-                ingredientDict[category]!.append(Ingredient(name: ingredient["name"].string!, amount: ingredient["amount"].string))
+                ingredientDict[category]!.append(Ingredient(
+                    name: ingredient["name"].string!,
+                    amount: ingredient["amount"].float!,
+                    unit: ingredient["unit"].string!
+                    )
+                )
             }
         }
-        
         return ingredientDict
+    }
+    
+    func toDict() -> [String:Any] {
+        return [
+            "name": name,
+            "amount": amount,
+            "unit": unit
+        ]
     }
 }
 
@@ -107,6 +144,16 @@ class RecipeImage {
         self.height = height
         self.width = width
     }
+    
+    func toDict() -> [String:Any] {
+        return [
+            "original": [
+                "url": self.url,
+                "height": self.height,
+                "width": self.width
+            ]
+        ]
+    }
 }
 
 class Servings {
@@ -122,5 +169,13 @@ class Servings {
         self.serves = serves
         self.yields = yields
         self.yield_units = yield_units
+    }
+    
+    func toDict() -> [String:Any] {
+        return [
+            "serves": serves ?? 0.0,
+            "yields": yields ?? 0.0,
+            "yield_units": yield_units ?? ""
+        ]
     }
 }

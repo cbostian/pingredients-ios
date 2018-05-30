@@ -40,7 +40,7 @@ func createUser(callback: @escaping () -> ()) {
 }
 
 func makeRecipe(recipe: Recipe, callback: @escaping () -> ()) {
-    makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT, method: "POST", payload: recipe.json, responseHandler: {(response) in
+    makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT, method: "POST", payload: recipe.toJson(), responseHandler: {(response) in
         callback()
     })
 }
@@ -66,7 +66,12 @@ func makePingredientsRequest(route: String, urlArgs: String = "", method: String
     request.httpMethod = method
     if method == "POST" && payload != JSON.null {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONSerialization.data(withJSONObject: payload.rawValue)
+        print(payload.rawValue)
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: payload.rawValue)
+        } catch {
+            print(error)
+        }
     }
     Alamofire.request(request).responseJSON(completionHandler: {(response) in
         responseHandler(response)
