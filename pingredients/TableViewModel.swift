@@ -33,7 +33,7 @@ class TableViewModelItem {
     }
 }
 
-class ViewModel: NSObject {
+class TableViewModel: NSObject {
     var items = [TableViewModelItem]()
 
     var didToggleSelection: ((_ hasSelection: Bool) -> ())? {
@@ -52,14 +52,13 @@ class ViewModel: NSObject {
     }
 }
 
-extension ViewModel: UITableViewDataSource {
+extension TableViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell {
-            cell.item = items[indexPath.row]
+        let cell : IngredientTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! IngredientTableViewCell
 
             // select/deselect the cell
             if items[indexPath.row].isSelected {
@@ -78,7 +77,7 @@ extension ViewModel: UITableViewDataSource {
     }
 }
 
-extension ViewModel: UITableViewDelegate {
+extension TableViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         // update ViewModel item

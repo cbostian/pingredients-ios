@@ -82,7 +82,7 @@
         <!--Item-->
         <scene sceneID="jUX-68-2Hb">
             <objects>
-                <tableViewController id="q5U-9u-jRB" sceneMemberID="viewController">
+                <tableViewController id="q5U-9u-jRB" customClass="IngredientsViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="imR-tp-5dW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,12 +125,12 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="q5U-9u-jRB" id="f7E-86-f3E"/>
-                            <outlet property="delegate" destination="q5U-9u-jRB" id="PLf-Kr-94a"/>
-                        </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="Kmr-fV-PWv"/>
+                    <connections>
+                        <outlet property="ingredientTableView" destination="imR-tp-5dW" id="JsD-rz-nFV"/>
+                        <outlet property="tableView" destination="imR-tp-5dW" id="eQg-IP-geP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHV-kk-Fu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

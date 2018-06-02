@@ -10,9 +10,9 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var amount: UILabel?
-    @IBOutlet weak var unit: UILabel?
-    @IBOutlet weak var name: UILabel?
+    @IBOutlet weak var amount: UILabel!
+    @IBOutlet weak var unit: UILabel!
+    @IBOutlet weak var name: UILabel!
 
     var item: TableViewModelItem? {
         didSet {
