@@ -24,6 +24,8 @@
 		992DB16A208A395F0074B991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E284E5201150E4007F5649 /* Assets.xcassets */; };
 		992DB16B208A395F0074B991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E284DF201150E4007F5649 /* Main.storyboard */; };
 		994D6AD820C1C26E00DEC117 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D6AD720C1C26E00DEC117 /* IngredientTableViewCell.swift */; };
+		994D6ADC20C26F3500DEC117 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D6ADB20C26F3500DEC117 /* IngredientsViewController.swift */; };
+		994D6ADE20C2B26A00DEC117 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994D6ADD20C2B26A00DEC117 /* TableViewModel.swift */; };
 		99615F752033AE3300CEE11F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99615F742033AE3300CEE11F /* Constants.swift */; };
 		99A73CC7201584E400037794 /* pingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A73CC6201584E400037794 /* pingredients.swift */; };
 		99E284DC201150E4007F5649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E284DB201150E4007F5649 /* AppDelegate.swift */; };
@@ -77,6 +79,8 @@
 		992DB171208A395F0074B991 /* pingredients dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pingredients dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		992DB172208A395F0074B991 /* pingredients-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pingredients-dev.plist"; sourceTree = "<group>"; };
 		994D6AD720C1C26E00DEC117 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		994D6ADB20C26F3500DEC117 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		994D6ADD20C2B26A00DEC117 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		99615F742033AE3300CEE11F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99A73CC6201584E400037794 /* pingredients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pingredients.swift; sourceTree = "<group>"; };
 		99E284D8201150E4007F5649 /* pingredients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pingredients.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +237,7 @@
 				99ECA670201951590029DEE6 /* RecipesViewController.swift */,
 				F758ADE2209B8ABD00E25CEC /* BaseRecipesViewController.swift */,
 				F758ADE4209B8CB000E25CEC /* MakingOnlyViewController.swift */,
+				994D6ADB20C26F3500DEC117 /* IngredientsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				99ECA673201C00D30029DEE6 /* Recipe.swift */,
+				994D6ADD20C2B26A00DEC117 /* TableViewModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -712,11 +718,13 @@
 				99ECA674201C00D30029DEE6 /* Recipe.swift in Sources */,
 				99E284E4201150E4007F5649 /* pingredients.xcdatamodeld in Sources */,
 				F758ADE5209B8CB000E25CEC /* MakingOnlyViewController.swift in Sources */,
+				994D6ADE20C2B26A00DEC117 /* TableViewModel.swift in Sources */,
 				994D6AD820C1C26E00DEC117 /* IngredientTableViewCell.swift in Sources */,
 				99E284DC201150E4007F5649 /* AppDelegate.swift in Sources */,
 				99ECA671201951590029DEE6 /* RecipesViewController.swift in Sources */,
 				F758ADE3209B8ABD00E25CEC /* BaseRecipesViewController.swift in Sources */,
 				99ECA66F201875540029DEE6 /* RecipesLayout.swift in Sources */,
+				994D6ADC20C26F3500DEC117 /* IngredientsViewController.swift in Sources */,
 				99615F752033AE3300CEE11F /* Constants.swift in Sources */,
 				F7D3F38C208CF5E600FB77C5 /* environment.swift in Sources */,
 			);
