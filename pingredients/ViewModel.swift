@@ -1,5 +1,5 @@
 //
-//  TableViewModel.swift
+//  ViewModel.swift
 //  pingredients
 //
 //  Created by Catherine Bostian on 6/2/18.
@@ -9,32 +9,24 @@
 import Foundation
 import UIKit
 
-let ingredientsArray = [Ingredient(amount: "4", unit: "lbs", name: "apples"), Ingredient(amount: "1", unit: "ml", name: "olive oil",), Ingredient(amount: "2", unit: "cups", name: "flour"), Ingredient(amount: "1", unit: "tbsp", name: "salt"),]
+let dataArray = [Model(title: "Swift"), Model(title: "Objective C"), Model(title: "Java"), Model(title: "Kotlin"), Model(title: "Java Script"), Model(title: "Python"), Model(title: "Ruby"), Model(title: "PHP"), Model(title: "Perl"), Model(title: "C#"), Model(title: "C++"), Model(title: "Pascal"), Model(title: "Visual Basic")]
 
-class TableViewModelItem {
-    private var item: Ingredient
+class ViewModelItem {
+    private var item: Model
 
     var isSelected = false
 
-    var amount: String {
-        return item.amount
+    var title: String {
+        return item.title
     }
 
-    var unit: String {
-        return item.unit
-    }
-
-    var name: String {
-        return item.name
-    }
-
-    init(item: Ingredient) {
+    init(item: Model) {
         self.item = item
     }
 }
 
-class TableViewModel: NSObject {
-    var items = [TableViewModelItem]()
+class ViewModel: NSObject {
+    var items = [ViewModelItem]()
 
     var didToggleSelection: ((_ hasSelection: Bool) -> ())? {
         didSet {
@@ -42,23 +34,24 @@ class TableViewModel: NSObject {
         }
     }
 
-    var selectedItems: [TableViewModelItem] {
+    var selectedItems: [ViewModelItem] {
         return items.filter { return $0.isSelected }
     }
 
     override init() {
         super.init()
-        items = ingredientsArray.map { TableViewModelItem(item: $0) }
+        items = dataArray.map { ViewModelItem(item: $0) }
     }
 }
 
-extension TableViewModel: UITableViewDataSource {
+extension ViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : IngredientTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! IngredientTableViewCell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell {
+            cell.item = items[indexPath.row]
 
             // select/deselect the cell
             if items[indexPath.row].isSelected {
@@ -77,7 +70,7 @@ extension TableViewModel: UITableViewDataSource {
     }
 }
 
-extension TableViewModel: UITableViewDelegate {
+extension ViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         // update ViewModel item

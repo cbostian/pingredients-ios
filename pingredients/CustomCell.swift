@@ -1,5 +1,5 @@
 //
-//  IngredientTableViewCell.swift
+//  CustomCell.swift
 //  pingredients
 //
 //  Created by Catherine Bostian on 6/1/18.
@@ -8,24 +8,22 @@
 
 import UIKit
 
-class IngredientTableViewCell: UITableViewCell {
+class CustomCell: UITableViewCell {
+    print("in custom cell")
 
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var unit: UILabel!
-    @IBOutlet weak var name: UILabel!
-
-    var item: TableViewModelItem? {
+    var item: ViewModelItem? {
         didSet {
-            amount?.text = item?.amount
-            unit?.text = item?.unit
-            name?.text = item?.name
+            titleLabel?.text = item?.title
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         selectionStyle = .none
     }
+
+    @IBOutlet weak var titleLabel: UILabel!
 
     static var nib:UINib {
         return UINib(nibName: identifier, bundle: nil)
@@ -37,8 +35,8 @@ class IngredientTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // update UI
         accessoryType = selected ? .checkmark : .none
     }
-
 }
