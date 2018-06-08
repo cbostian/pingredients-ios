@@ -8,13 +8,13 @@
 
 import UIKit
 
-class IngredientsViewCell: UITableViewCell {
+class CustomCell: UITableViewCell {
 
-    var item: TableViewModelItem? {
+    var item: ViewModelItem? {
         didSet {
-            amount?.text = item?.amount
-            unit?.text = item?.unit
-            name?.text = item?.name
+            titleLabel?.text = item?.amount
+            labelTwo?.text = item?.unit
+            labelThree?.text = item?.name
         }
     }
 
@@ -24,9 +24,9 @@ class IngredientsViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var unit: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var labelTwo: UILabel?
+    @IBOutlet weak var labelThree: UILabel?
 
 
     static var nib:UINib {

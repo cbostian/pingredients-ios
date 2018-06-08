@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-let dataArray = [TableModel(amount: "5", unit: "cups", name: "wine"), TableModel(amount: "5", unit: "cups", name: "wine"), TableModel(amount: "5", unit: "cups", name: "wine"), TableModel(amount: "5", unit: "cups", name: "wine")]
+let dataArray = [Model(amount: "5", unit: "cups", name: "wine"), Model(amount: "5", unit: "cups", name: "wine"),
+                 Model(amount: "5", unit: "cups", name: "wine"), Model(amount: "5", unit: "cups", name: "wine")]
 
-class TableViewModelItem {
-    private var item: TableModel
+class ViewModelItem {
+    private var item: Model
 
     var isSelected = false
 
@@ -28,13 +29,13 @@ class TableViewModelItem {
         return item.name
     }
 
-    init(item: TableModel) {
+    init(item: Model) {
         self.item = item
     }
 }
 
-class TableViewModel: NSObject {
-    var items = [TableViewModelItem]()
+class ViewModel: NSObject {
+    var items = [ViewModelItem]()
 
     var didToggleSelection: ((_ hasSelection: Bool) -> ())? {
         didSet {
@@ -42,17 +43,17 @@ class TableViewModel: NSObject {
         }
     }
 
-    var selectedItems: [TableViewModelItem] {
+    var selectedItems: [ViewModelItem] {
         return items.filter { return $0.isSelected }
     }
 
     override init() {
         super.init()
-        items = dataArray.map { TableViewModelItem(item: $0) }
+        items = dataArray.map { ViewModelItem(item: $0) }
     }
 }
 
-extension TableViewModel: UITableViewDataSource {
+extension ViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -78,7 +79,7 @@ extension TableViewModel: UITableViewDataSource {
     }
 }
 
-extension TableViewModel: UITableViewDelegate {
+extension ViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         // update ViewModel item

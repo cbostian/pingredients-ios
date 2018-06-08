@@ -19,7 +19,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Uw-9m-3JJ" customClass="IngredientsViewCell" customModule="pingredients" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Uw-9m-3JJ" customClass="CustomCell" customModule="pingredients" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Uw-9m-3JJ" id="zA1-qd-mdI">
@@ -59,7 +59,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="amount" destination="6Ab-zR-1lC" id="aka-k4-oye"/>
+                <outlet property="labelThree" destination="uGJ-R0-gq8" id="MbZ-Xa-Vrt"/>
+                <outlet property="labelTwo" destination="RWo-1F-QGY" id="snJ-Pt-tpx"/>
                 <outlet property="name" destination="uGJ-R0-gq8" id="7eq-jG-DF5"/>
+                <outlet property="titleLabel" destination="6Ab-zR-1lC" id="wkF-vb-C43"/>
                 <outlet property="unit" destination="RWo-1F-QGY" id="Afy-V5-6Q7"/>
             </connections>
             <point key="canvasLocation" x="-39.5" y="-446"/>

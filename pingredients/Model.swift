@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TableModel {
+struct Model {
     var amount: String
     var unit: String
     var name: String
