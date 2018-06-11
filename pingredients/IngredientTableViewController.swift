@@ -2,7 +2,7 @@
 //  IngredientTableViewController.swift
 //  pingredients
 //
-//  Created by Catherine Bostian on 6/8/18.
+//  Created by Catherine Bostian on 6/11/18.
 //  Copyright © 2018 Catherine Bostian. All rights reserved.
 //
 
@@ -10,14 +10,11 @@ import UIKit
 
 class IngredientTableViewController: UITableViewController {
     //MARK: Properties
-
     var ingredients = [Ingredient]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded!!!!")
-
-        // Load the sample data.
+        print("loaded!!!!!!")
         loadSampleIngredients()
 
         // Uncomment the following line to preserve selection between presentations
@@ -39,22 +36,25 @@ class IngredientTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         return ingredients.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "IngredientTableViewCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
 
-        // Fetches the appropriate ingredient for the data source layout.
         let ingredient = ingredients[indexPath.row]
 
-        cell.amount.text = ingredient.amount
-        cell.unit.text = ingredient.unit
-        cell.name.text = ingredient.name
+        cell.amountLabel.text = ingredient.amount
+        cell.unitLabel.text = ingredient.unit
+        cell.nameLabel.text = ingredient.name
+
+        // Configure the cell...
 
         return cell
     }
@@ -114,7 +114,7 @@ class IngredientTableViewController: UITableViewController {
             fatalError("Unable to instantiate ingredient2")
         }
 
-        guard let ingredient3 = Meal(name: "Pasta", unit: "cups", amount: "2") else {
+        guard let ingredient3 = Ingredient(name: "Pasta", unit: "cups", amount: "2") else {
             fatalError("Unable to instantiate ingredient3")
         }
 

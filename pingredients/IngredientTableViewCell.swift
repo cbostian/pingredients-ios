@@ -2,7 +2,7 @@
 //  IngredientTableViewCell.swift
 //  pingredients
 //
-//  Created by Catherine Bostian on 6/8/18.
+//  Created by Catherine Bostian on 6/11/18.
 //  Copyright © 2018 Catherine Bostian. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
     //MARK: Properties
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var unit: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var unitLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
