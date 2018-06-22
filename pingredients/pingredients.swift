@@ -13,6 +13,7 @@ import SwiftyJSON
 let RECIPES_ENDPOINT = "/recipes"
 let USERS_ENDPOINT = "/users/"
 let MAKING_RECIPES_ENDPOINT = "/making-recipes"
+let GROCERY_LIST_ENDPOINT = "/grocery-list"
 
 var cursor = ""
 
@@ -54,6 +55,16 @@ func unmakeRecipe(recipe: Recipe, recipeID: String, cell: RecipesViewCell, callb
 func getMakingRecipes(callback: @escaping ([Recipe]) -> ()) {
     makePingredientsRequest(route: MAKING_RECIPES_ENDPOINT, responseHandler:{(response) in
         callback(recipesFromJSON(networkResponseData: response))
+    })
+}
+
+func getGroceryList(callback: @escaping ([String:[Ingredient]]) -> ()) {
+    makePingredientsRequest(route: GROCERY_LIST_ENDPOINT, responseHandler: {(response) in
+        do {
+            callback(Ingredient.ingredientsFromJSON(ingredientsJSON: try JSON(data: response.data!)))
+        } catch {
+            print(error)
+        }
     })
 }
 

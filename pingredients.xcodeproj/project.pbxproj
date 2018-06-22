@@ -37,10 +37,12 @@
 		99ECA671201951590029DEE6 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA670201951590029DEE6 /* RecipesViewController.swift */; };
 		99ECA674201C00D30029DEE6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECA673201C00D30029DEE6 /* Recipe.swift */; };
 		E60A1484362D4A6BD445AE98 /* Pods_pingredientsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976DD4CB4BED7E63EE90229C /* Pods_pingredientsTests.framework */; };
+		F714FDA720DC365700218448 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F759D61720DC2A6A0037197C /* GroceryListViewController.swift */; };
 		F758ADE3209B8ABD00E25CEC /* BaseRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F758ADE2209B8ABD00E25CEC /* BaseRecipesViewController.swift */; };
 		F758ADE5209B8CB000E25CEC /* MakingOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F758ADE4209B8CB000E25CEC /* MakingOnlyViewController.swift */; };
 		F758ADE6209B8DBC00E25CEC /* BaseRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F758ADE2209B8ABD00E25CEC /* BaseRecipesViewController.swift */; };
 		F758ADE7209B8DBF00E25CEC /* MakingOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F758ADE4209B8CB000E25CEC /* MakingOnlyViewController.swift */; };
+		F759D61820DC2A6A0037197C /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F759D61720DC2A6A0037197C /* GroceryListViewController.swift */; };
 		F7D3F38C208CF5E600FB77C5 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3F38B208CF5E600FB77C5 /* environment.swift */; };
 		F7D3F38D208CF99B00FB77C5 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3F38B208CF5E600FB77C5 /* environment.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,7 @@
 		B8FF59E85E9E5BAB7D6B63A6 /* Pods-pingredients.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pingredients.release.xcconfig"; path = "Pods/Target Support Files/Pods-pingredients/Pods-pingredients.release.xcconfig"; sourceTree = "<group>"; };
 		F758ADE2209B8ABD00E25CEC /* BaseRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRecipesViewController.swift; sourceTree = "<group>"; };
 		F758ADE4209B8CB000E25CEC /* MakingOnlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakingOnlyViewController.swift; sourceTree = "<group>"; };
+		F759D61720DC2A6A0037197C /* GroceryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		F7D3F38B208CF5E600FB77C5 /* environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +234,7 @@
 				99ECA670201951590029DEE6 /* RecipesViewController.swift */,
 				F758ADE2209B8ABD00E25CEC /* BaseRecipesViewController.swift */,
 				F758ADE4209B8CB000E25CEC /* MakingOnlyViewController.swift */,
+				F759D61720DC2A6A0037197C /* GroceryListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -684,6 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F714FDA720DC365700218448 /* GroceryListViewController.swift in Sources */,
 				992DB15D208A395F0074B991 /* RecipesViewCell.swift in Sources */,
 				992DB15E208A395F0074B991 /* LoginViewController.swift in Sources */,
 				992DB15F208A395F0074B991 /* pingredients.swift in Sources */,
@@ -713,6 +718,7 @@
 				99ECA671201951590029DEE6 /* RecipesViewController.swift in Sources */,
 				F758ADE3209B8ABD00E25CEC /* BaseRecipesViewController.swift in Sources */,
 				99ECA66F201875540029DEE6 /* RecipesLayout.swift in Sources */,
+				F759D61820DC2A6A0037197C /* GroceryListViewController.swift in Sources */,
 				99615F752033AE3300CEE11F /* Constants.swift in Sources */,
 				F7D3F38C208CF5E600FB77C5 /* environment.swift in Sources */,
 			);
