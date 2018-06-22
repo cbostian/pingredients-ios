@@ -32,6 +32,11 @@ class GroceryListViewController: UITableViewController {
         getGroceryList(callback: overwriteGroceries)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getGroceryList(callback: overwriteGroceries)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return groceries.count
     }
