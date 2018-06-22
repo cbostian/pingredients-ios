@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,6 +40,7 @@
                     <connections>
                         <segue destination="ZEG-wl-W1x" kind="relationship" relationship="viewControllers" id="OPP-Xn-aib"/>
                         <segue destination="v0r-at-ATz" kind="relationship" relationship="viewControllers" id="Vwh-e9-wW0"/>
+                        <segue destination="YUz-Ad-U3A" kind="relationship" relationship="viewControllers" id="0A6-Ni-xst"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umQ-Q5-5n0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,7 +74,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZy-B9-8e4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2199" y="1988"/>
+            <point key="canvasLocation" x="-2236" y="1647"/>
+        </scene>
+        <!--Groceries-->
+        <scene sceneID="yhc-ZR-WgP">
+            <objects>
+                <tableViewController id="YUz-Ad-U3A" customClass="GroceryListViewController" customModule="pingredients" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JI5-Xz-L8h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="lf1-SO-W6i" style="IBUITableViewCellStyleDefault" id="Yxb-UH-xi1">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yxb-UH-xi1" id="y4h-ez-m7E">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lf1-SO-W6i">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YUz-Ad-U3A" id="QKf-f7-fKy"/>
+                            <outlet property="delegate" destination="YUz-Ad-U3A" id="aYw-xf-ApF"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Groceries" id="2ux-sW-CTY"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3L-1V-95Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2236" y="2278"/>
         </scene>
         <!--Recipes Container-->
         <scene sceneID="Szf-0x-RXt">
@@ -100,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hou-kZ-xbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2198" y="1244"/>
+            <point key="canvasLocation" x="-2236" y="981"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="J7H-z1-x54">
@@ -112,7 +151,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="g4t-vN-qT7" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="RecipesCell" id="Axg-wD-wcJ" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
                                 <rect key="frame" x="53" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -120,16 +159,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G13-PN-b4V">
-                                            <rect key="frame" x="0.0" y="248.66666666666666" width="269" height="20.333333333333343"/>
+                                            <rect key="frame" x="0.0" y="121.66666666666667" width="253" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-fM-g32">
-                                            <rect key="frame" x="0.0" y="0.0" width="269" height="240.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="113.66666666666667"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh3-2e-t55">
-                                            <rect key="frame" x="219" y="10" width="40" height="40"/>
+                                            <rect key="frame" x="203" y="10" width="40" height="40"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="A2y-QZ-AGU"/>
@@ -166,7 +205,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fha-kf-4xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1390" y="1244"/>
+            <point key="canvasLocation" x="-1391" y="981"/>
         </scene>
         <!--Making Only View Controller-->
         <scene sceneID="56B-hx-w8k">
@@ -178,7 +217,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="SPk-6D-NpC" customClass="RecipesLayout" customModule="pingredients" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCell" id="7qP-fm-ECP" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="RecipesCell" id="7qP-fm-ECP" customClass="RecipesViewCell" customModule="pingredients" customModuleProvider="target">
                                 <rect key="frame" x="53" y="0.0" width="269" height="285"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -186,16 +225,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra0-jr-QIB">
-                                            <rect key="frame" x="0.0" y="248.66666666666666" width="269" height="20.333333333333343"/>
+                                            <rect key="frame" x="0.0" y="121.66666666666667" width="253" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AU8-F2-82E">
-                                            <rect key="frame" x="0.0" y="0.0" width="269" height="240.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="113.66666666666667"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNp-bH-3BS">
-                                            <rect key="frame" x="219" y="10" width="40" height="40"/>
+                                            <rect key="frame" x="203" y="10" width="40" height="40"/>
                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="EHG-2g-VE3"/>
@@ -232,7 +271,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlA-ee-6Qj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1391" y="1988"/>
+            <point key="canvasLocation" x="-1391" y="1646"/>
         </scene>
     </scenes>
     <resources>
