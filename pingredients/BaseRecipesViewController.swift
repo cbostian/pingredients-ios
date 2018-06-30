@@ -65,12 +65,13 @@ extension BaseRecipesViewController : RecipesLayoutDelegate {
         let recipe = recipes[indexPath.item]
         let photo = recipe.image
         let scaleFactor = width / CGFloat(photo.width)
+        
         return CGFloat(photo.height) * scaleFactor
     }
     
     func heightForCaption(at indexPath: IndexPath, width: CGFloat) -> CGFloat {
         let recipe = recipes[indexPath.item]
-        return self.textHeight(for: recipe.name ?? recipe.note, for: Constants.captionFont, width: width)
+        return self.textHeight(for: recipe.displayName, for: Constants.captionFont, width: width)
     }
     
     func textHeight(for text: String, for font: UIFont, width: CGFloat) -> CGFloat {

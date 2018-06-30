@@ -23,7 +23,7 @@ class RecipesViewCell: UICollectionViewCell
     func updateUI(recipe: Recipe)
     {
         self.post = recipe
-        captionLabel.text = post.name ?? post.note
+        captionLabel.text = post.displayName
         captionLabel.font = Constants.captionFont
         clearImage()
         if let img = post.image.downloadedImage {
