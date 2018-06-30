@@ -73,6 +73,11 @@ class Recipe {
             json: recipeJSON
         )
     }
+    
+    var displayName: String {
+        let unwrappedName = name ?? ""
+        return unwrappedName != "" ? unwrappedName : note
+    }
 }
 
 struct Ingredient {
