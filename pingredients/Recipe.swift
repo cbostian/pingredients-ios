@@ -54,7 +54,7 @@ class Recipe {
         return Recipe(
             note: recipeJSON["note"].string!,
             description: recipeJSON["metadata"]["article"]["description"].string,
-            name: recipeJSON["metadata"]["article"]["name"].string,
+            name: recipeJSON["metadata"]["recipe"]["name"].string,
             image: RecipeImage(
                 url: recipeJSON["image"]["original"]["url"].string!,
                 height: recipeJSON["image"]["original"]["height"].int!,
