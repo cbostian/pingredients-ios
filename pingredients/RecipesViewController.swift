@@ -27,15 +27,13 @@ class RecipesViewController : BaseRecipesViewController
     func updateRecipes(recipesToAdd: [Recipe]) {
         let minNewRecipesIndex = (self.recipes.count)
         recipes += recipesToAdd
-        DispatchQueue.main.async {
-            if recipesToAdd.count == self.recipes.count {
-                self.collectionView?.reloadData()
-            } else {
-                let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
-                self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })
-                self.isLoadingMore = false
-                self.layout?.invalidateLayout()
-            }
+        if recipesToAdd.count == self.recipes.count {
+            self.collectionView?.reloadData()
+        } else {
+            let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
+            self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })
+            self.isLoadingMore = false
+            self.layout?.invalidateLayout()
         }
     }
     
