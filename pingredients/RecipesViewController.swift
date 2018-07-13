@@ -25,6 +25,9 @@ class RecipesViewController : BaseRecipesViewController
     }
 
     func updateRecipes(recipesToAdd: [Recipe]) {
+        if recipesToAdd.count == 0 {
+            return
+        }
         let minNewRecipesIndex = (self.recipes.count)
         recipes += recipesToAdd
         if recipesToAdd.count == self.recipes.count {

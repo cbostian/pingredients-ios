@@ -41,6 +41,9 @@ class BaseRecipesViewController : UICollectionViewController
     
     
     @objc func ipadWasRotated() {
+        if !(UIDeviceOrientationIsLandscape(UIDevice.current.orientation) || UIDeviceOrientationIsPortrait(UIDevice.current.orientation)) {
+            return
+        }
         self.layout?.invalidateLayout()
     }
 }
