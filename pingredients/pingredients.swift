@@ -15,11 +15,14 @@ let USERS_ENDPOINT = "/users/"
 let MAKING_RECIPES_ENDPOINT = "/making-recipes"
 let GROCERY_LIST_ENDPOINT = "/grocery-list"
 
-var cursor = ""
+var cursor = "default"
 
 func getRecipePins(callback: @escaping ([Recipe]) -> ()) {
+    if cursor == "" {
+        return
+    }
     var urlArgs = ""
-    if cursor != "" {
+    if cursor != "default"{
         urlArgs = "?cursor=" + cursor
     }
     makePingredientsRequest(route: RECIPES_ENDPOINT, urlArgs: urlArgs, responseHandler: {(response) in
