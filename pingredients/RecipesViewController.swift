@@ -23,6 +23,7 @@ class RecipesViewController : BaseRecipesViewController
     }
     
     @objc private func refresh(_ sender: Any) {
+        isLoadingMore = true
         cursor = "default"
         recipes = []
         loadRecipes()
