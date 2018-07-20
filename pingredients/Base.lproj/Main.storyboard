@@ -108,7 +108,7 @@
                             <outlet property="delegate" destination="uJg-ri-5a9" id="FHE-2j-3XZ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Groceries" id="LuB-gh-LfE"/>
+                    <tabBarItem key="tabBarItem" title="Groceries" image="Groceries" id="LuB-gh-LfE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yrg-n5-b7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,7 +135,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aLZ-8v-6Zk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipes" id="phw-F1-2yK"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="PingredientsTab" id="phw-F1-2yK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hou-kZ-xbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,7 +275,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cook" width="21" height="21"/>
-        <image name="Cooking" width="21" height="21"/>
+        <image name="Cook" width="25" height="25"/>
+        <image name="Cooking" width="25" height="25"/>
+        <image name="Groceries" width="25" height="25"/>
+        <image name="PingredientsTab" width="25" height="25"/>
     </resources>
 </document>
