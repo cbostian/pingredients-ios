@@ -23,10 +23,13 @@ class RecipesViewController : BaseRecipesViewController
     }
     
     @objc private func refresh(_ sender: Any) {
-        isLoadingMore = true
-        cursor = "default"
-        recipes = []
-        loadRecipes()
+        if !isLoadingMore {
+            isLoadingMore = true
+            cursor = "default"
+            recipes = []
+            layout?.invalidateLayout()
+            loadRecipes()
+        }
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -45,6 +48,7 @@ class RecipesViewController : BaseRecipesViewController
         if recipesToAdd.count == self.recipes.count {
             self.collectionView?.reloadData()
             self.refreshControl.endRefreshing()
+            self.isLoadingMore = false
         } else {
             let numberOfItems: [Int] = Array(minNewRecipesIndex...self.recipes.count - 1)
             self.collectionView?.insertItems(at: numberOfItems.map { IndexPath(item: $0, section: 0) })

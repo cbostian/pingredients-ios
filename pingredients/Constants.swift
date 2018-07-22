@@ -11,9 +11,9 @@ import UIKit
 
 struct Constants {
     static var columns: Int {
-        if UIDevice.current.userInterfaceIdiom == .pad && UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+        if UIDevice.current.userInterfaceIdiom == .pad && UIApplication.shared.statusBarOrientation.isPortrait {
             return 3
-        } else if UIDevice.current.userInterfaceIdiom == .pad && UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        } else if UIDevice.current.userInterfaceIdiom == .pad && UIApplication.shared.statusBarOrientation.isLandscape {
             return 4
         } else {
             return 2
