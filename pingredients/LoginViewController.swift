@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     func login() {
+        print("JIMMMY");
         createUser(callback: {
             if Constants.columns < 3 {
                 orientationUtility.lockOrientation(.portrait, andRotateTo: .portrait)
