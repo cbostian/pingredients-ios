@@ -53,10 +53,28 @@ class GroceryListViewController: UITableViewController {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
             cell.textLabel?.text = categories[indexPath.section].title
+            cell.textLabel?.textColor = UIColor(red: 0.0, green: 135.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+            cell.textLabel?.textAlignment = .left
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-            cell.textLabel?.text = groceries[categories[indexPath.section].title]![indexPath.row - 1].name
+            let ingredient = groceries[categories[indexPath.section].title]![indexPath.row - 1]
+            
+            var label = ""
+            if let displayAmount = ingredient.displayAmount {
+                if displayAmount != "" {
+                    label += displayAmount + " "
+                }
+            }
+            if let unit = ingredient.unit {
+                if unit != "" {
+                    label += unit + " "
+                }
+            }
+            label += ingredient.name
+            cell.textLabel?.text = label
+            cell.textLabel?.textColor = UIColor.black
+            cell.textLabel?.textAlignment = .center
             return cell
         }
     }
